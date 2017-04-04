@@ -1,0 +1,21 @@
+<nav class="sidebar">
+    <div class="user-section">
+        <ul class="section">
+            <li class="drop">
+                <a href="#" class="userIcon">
+                    <div class="userSection">
+                        <img src="https://dcatcher.me/assets/dcatcher.jpg" alt="user icon" class="icon">
+                        <img src="https://dcatcher.me/assets/fra.svg" alt="FRA Flag" class="flag">
+                    </div>
+                    <span>{{ name }}</span>
+                    <span class="sticky-push"></span>
+                    <img src="https://dcatcher.me/assets/downarrow.svg" alt="toggle" class="rot arrow">
+                </a>
+            </li>
+        </ul>
+        <ul class="dropdown-elements">
+            <li class="hide hidden"><a href="#settings#"><i class="fa fa-fw fa-cog"></i></a></li>
+            <li class="hide hidden"><a href="{% url 'phrasebook:logout' %}" class="logout"><i class="fa fa-fw fa-sign-out"></i></a></li>
+        </ul>
+    </div>
+</nav>

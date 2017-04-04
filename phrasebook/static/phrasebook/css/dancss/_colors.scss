@@ -1,0 +1,57 @@
+$red: #FF4136;
+$deepRed: #b63b34;
+$blue: #0074D9;
+$navy: #001f3f;
+$aqua: #7FDBFF;
+$teal: #39CCCC;
+$olive: #3D9970;
+$green: #2ECC40;
+$lime: #01FF70;
+$yellow: #FFDC00;
+$orange: #FF851B;
+$maroon: #85144b;
+$fuscia: #F012BE;
+$purple: #B10DC9;
+$black: #111111;
+$gray: #AAAAAA;
+$silver: #DDDDDD;
+$white: #FFFFFF;
+
+.bg--red {background-color: $red; }
+.bg--deepRed {background-color: $deepRed; }
+.bg--blue {background-color: $blue; }
+.bg--navy {background-color: $navy; }
+.bg--aqua {background-color: $aqua; }
+.bg--teal {background-color: $teal; }
+.bg--olive {background-color: $olive; }
+.bg--green {background-color: $green; }
+.bg--lime {background-color: $lime }
+.bg--yellow {background-color: $yellow; }
+.bg--orange {background-color: $orange; }
+.bg--maroon {background-color: $maroon; }
+.bg--fuscia {background-color: $fuscia; }
+.bg--purple {background-color: $purple; }
+.bg--black {background-color: $black; }
+.bg--gray {background-color: $gray; }
+.bg--darkgray {background-color: darken($gray, 40%); }
+.bg--silver {background-color: $silver; }
+.bg--white {background-color: $white; }
+
+.red {color: $red; }
+.deepRed {color: $deepRed; }
+.blue {color: $blue; }
+.navy {color: $navy; }
+.aqua {color: $aqua; }
+.teal {color: $teal; }
+.olive {color: $olive; }
+.green {color: $green; }
+.lime {color: $lime }
+.yellow {color: $yellow; }
+.orange {color: $orange; }
+.maroon {color: $maroon; }
+.fuscia {color: $fuscia; }
+.purple {color: $purple; }
+.black {color: $black; }
+.gray {color: $gray; }
+.silver {color: $silver; }
+.white {color: $white; }

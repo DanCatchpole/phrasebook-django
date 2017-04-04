@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/index.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+  </head>
+  <body class="mainPage">
+    <nav class="nav">
+      <div class="navLogo"><img src="https://dcatcher.me/assets/logo-notext-white.svg" class="logo"><span>Phrasebook</span></div>
+      <div class="bg">
+        <div class="links"><a href="{% url 'phrasebook:login' %}">Get Started</a></div>
+      </div>
+    </nav>
+    <div class="header"></div>
+    <header><a href="{% url 'phrasebook:login' %}" class="mainButton">Get Started</a></header>
+    <main style="height: 200vh"></main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
+    <script src="{% static 'phrasebook/js/dropdown.js' %}"></script>
+    <script type="text/javascript">
+      console.log($(".nav").outerHeight());
+      var header = $('header').height() - $(".nav").outerHeight() ;
+      $(window).on('scroll', function() {
+          var cur = $(window).scrollTop();
+          if (cur > header) {
+              $(".nav").addClass("beyond");
+              $(".logo").attr("src", "https://dcatcher.me/assets/logo-notext.svg");
+          } else {
+              $(".nav").removeClass("beyond");
+              $(".logo").attr("src", "https://dcatcher.me/assets/logo-notext-white.svg");
+          }
+      });
+    </script>
+  </body>
+</html>

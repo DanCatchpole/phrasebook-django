@@ -1,0 +1,170 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+@font-face{
+    font-family:'FontAwesome';
+    font-weight:normal;
+    font-style:normal;
+    src:url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0');
+    src:url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+        url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'),
+        url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'),
+        url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'),
+        url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+}
+
+$mainFont: "Open Sans", sans-serif;
+$mons: "Montserrat", sans-serif;
+
+$offwhite: rgb(222, 222, 222);
+// $redd:#d12929;
+
+form.glass-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // justify-content: space-between;
+    // height: 100%;
+    // margin-bottom: 2rem;
+
+    .form-group {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+            flex: 5;
+            width: 100%;
+        }
+
+        span.padding {
+            flex: 1;
+        }
+    }
+
+    input[type="text"], input[type="password"], input[type="email"] {
+        margin-bottom: 0.5rem;
+        background-color: rgba(0,0,0,0);
+        border: none;
+        padding: 1rem 1rem 0.75rem 1rem;
+        border-bottom: 1px solid white;
+        color:$offwhite;
+        font-size: 1.25rem;
+        transition: 0.2s border-color;
+    }
+
+    textarea {
+        margin: 0.5rem 0;
+        border: none;
+        background-color: rgba(0,0,0,0.1);
+        border-bottom: 1px solid white;
+        color:$offwhite;
+        font-size: 1.5rem;
+        font-family: $mainFont;
+        padding: 1rem 1rem 0.75rem 1rem;
+    }
+
+    input:disabled {
+        color: darken($offwhite, 40%);
+        border-bottom: 1px dashed darken($offwhite, 40%);
+    }
+
+    input:required {
+        // border-color: rgb(221, 119, 45);
+    }
+
+    input:focus, textarea:focus{
+        border-color: rgb(47, 169, 208);
+    }
+
+    input:invalid input:-moz-submit-invalid, input:-moz-ui-invalid {
+    box-shadow: none;
+    border-bottom-color: $redd;
+    color: $redd;
+    }
+
+    input[type=submit] {
+        margin-top: 1rem;
+    }
+
+}
+
+.glass-btnGroup {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    align-content: center;
+}
+
+.glass-btn {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid white;
+    font-family: $mainFont;
+    color: white;
+    font-size: 1.25rem;
+    // font-weight: 700;
+    transition: 0.2s background;
+    text-align: center;
+    // align-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 0.2rem;
+}
+
+.glass-btn:hover:not(.btn-disabled) {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.glass-btn-small {
+    font-size: 1rem;
+    max-width: 10rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.glass-btn-large {
+    font-size: 2rem;
+    // max-width: 10rem;
+    padding: 0.5rem 2rem;
+}
+
+.glass-btn-disabled {
+    color: darken($offwhite, 20%);
+    background-color: rgba(0,0,0,0.2);
+    cursor: default;
+}
+
+ul.glass-breadcrumb {
+    list-style: none;
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+    width: 100%;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    li {
+        float: left;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+    }
+
+    li:not(:last-child) a::after {
+        font-family: FontAwesome;
+        content: "\f105";
+        padding: 0 0.5rem;
+    }
+
+    li:first-child a {
+        padding-left: 0;
+    }
+
+    li:last-child a {
+        font-weight: 700;
+    }
+}
