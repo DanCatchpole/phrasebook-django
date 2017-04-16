@@ -1,0 +1,143 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700);
+* {
+  box-sizing: border-box; }
+
+html, body {
+  flex-direction: row;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  height: 100%; }
+
+body.loginPage {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("https://dcatcher.me/assets/desk.jpg");
+  background-size: cover;
+  background-position: center center; }
+
+nav.nav {
+  position: fixed;
+  top: 0;
+  height: 4rem;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  z-index: 100; }
+  nav.nav div.bg {
+    background-color: white;
+    position: absolute;
+    transform: translateY(-80px);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 99;
+    transition: 0.4s transform;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.125); }
+  nav.nav div.navLogo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 5rem;
+    z-index: 101;
+    padding: 0.5rem 1rem; }
+    nav.nav div.navLogo span {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 2rem; }
+    nav.nav div.navLogo img.logo {
+      height: 2rem;
+      margin-right: 0.5rem; }
+  nav.nav div.links {
+    float: right;
+    display: flex;
+    height: 100%;
+    z-index: 100;
+    position: relative; }
+    nav.nav div.links a {
+      text-decoration: none;
+      background-color: #07a776;
+      align-content: center;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      height: 4rem;
+      color: white;
+      transition: background 0.2s; }
+    nav.nav div.links a:hover {
+      background-color: #068f65; }
+
+nav.beyond {
+  z-index: 100; }
+  nav.beyond div.bg {
+    transform: translateY(0px); }
+  nav.beyond div.navLogo span {
+    color: #666; }
+
+div.header {
+  height: 100vh;
+  background-image: url("https://dcatcher.me/assets/colosseum.jpg");
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+  position: fixed;
+  z-index: -1; }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; }
+
+main {
+  width: 100%;
+  background-color: white; }
+
+a.mainButton {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  background-color: #07a776;
+  padding: 1rem;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, box-shadow 0.2s;
+  border-radius: 0.2rem; }
+
+a.mainButton:hover {
+  background-color: #068f65;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.4); }
+
+main.loginMain {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  flex-direction: column; }
+  main.loginMain img {
+    width: 10rem; }
+
+div#loginSection {
+  width: 100%;
+  max-width: 600px; }
+
+div.formFields {
+  display: flex;
+  flex-direction: column;
+  width: 100%; }
+
+label.forForm {
+  display: flex;
+  width: 100%;
+  flex-direction: column; }
+  label.forForm span {
+    position: relative;
+    top: 2.75rem;
+    left: 0.5rem;
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+    color: #c5c5c5;
+    font-weight: 600;
+    z-index: 99; }
+
+/*# sourceMappingURL=index.css.map */

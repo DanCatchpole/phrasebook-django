@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Phrasebook - Home</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="https://dcatcher.me/assets/favicon.png">
+  </head>
+  <body>
+    {% include "phrasebook/sidebar.html" %}
+    <main>
+        <div class="topBar">
+            <div class="top">
+                <span class="mainTitle">
+                    <i class="fa fa-fw fa-home"></i>
+                    <span>{{ current_language.hello }}!</span>
+                    <span class="subtext">Welcome back {{ first_name }}.</span>
+                </span>
+            </div>
+        </div>
+        <div class="content">
+            {% if words__len > 0 %}
+                <h2>Here's the last 10 words you added:</h2>
+                <div class="allWords">
+                    {% for word in words %}
+                        <div class="wordBlock">
+                            <span class="lang">{{ word.foreign }}</span>
+                            <span class="padding"></span>
+                            <span class="english">{{ word.english }}</span>
+                            <span class="padding"></span>
+                            <span class="language">
+                                <img src="https://dcatcher.me/assets/{{ word.category.language.flag_name }}.svg" alt="language" class="languageIcon">
+                                <span>{{ word.category.language.english_name }}</span>
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+           {% else %}
+                <h2>You haven't added any words yet! Why not add some to a category on the left!</h2>
+                <img src="https://dcatcher.me/assets/sidebar-arrow.svg" alt="Arrow to sidebar" class="sidebar-arrow">
+           {% endif %}
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
+    <script src="{% static 'phrasebook/js/languagePicker.js' %}"></script>
+    <script src="{% static 'phrasebook/js/sidebar.js' %}"></script>
+  </body>
+</html>

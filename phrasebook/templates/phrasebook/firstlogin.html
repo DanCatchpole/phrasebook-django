@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Welcome!</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+  </head>
+  <body>
+    <main class="noSidebar">
+      <div class="topBar">
+        <div class="top">
+            <span class="mainTitle">
+                <i class="fa fa-fw fa-smile-o"></i>
+                <span>Welcome to Phrasebook!</span>
+                <span class="subtext">Please choose a language to get started.</span>
+            </span>
+        </div>
+      </div>
+      <form method="post" action="{% url "phrasebook:register_user_language" %}" class="invisible-form select-language">{% csrf_token %}
+        <div class="language-selector-container">
+            <div class="language-selector">
+              {% for language in languages %}
+                <div class="language-block" style="background-color:{{ language.color }}">
+                    <span class="language-title">{{ language.english_name }}</span>
+                    <img src="https://dcatcher.me/assets/{{ language.flag_name }}.svg" alt="{{ language.english_name }}" class="language-icon">
+                    <span class="hidden">{{ language.flag_name }}</span>
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+        <div class="submit-section">
+          <input type="hidden" value="" name="langVal" id="langVal" class="langVal">
+            <input type="submit" name="submit" id="submit" value="Save" class="button button-save" disabled>
+        </div>
+      </form>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
+      <script src="{% static 'phrasebook/js/languagePicker.js' %}"></script>
+
+  </body>
+</html>

@@ -1,0 +1,20 @@
+@import "colors";
+
+.button {
+  text-decoration: none;
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.button--large {
+  border-radius: 1rem;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+}
+
+.button--xlarge {
+  border-radius: 1rem;
+  font-size: 5rem;
+  padding: 1.5rem 3rem;
+}

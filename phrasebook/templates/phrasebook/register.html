@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Phrasebook - Register</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+  </head>
+  <body class="registerPage logReg">
+    <nav><a href="{% url 'phrasebook:index' %}"><i class="fa fa-fw fa-chevron-left"></i><span>Back home</span></a>
+      <div><span>Already a member?</span><a href="{% url 'phrasebook:login' %}">Log in</a></div>
+    </nav>
+    <main class="noSidebar">
+      <div class="loginBlock">
+        <div class="formTitle">
+          <div class="logo">
+            <object data="https://dcatcher.me/assets/logo-col.svg"></object>
+          </div>
+        </div>
+        <form action="register" method="post" class="glass-form">{% csrf_token %}
+          <input type="text" placeholder="Username" name="username" required>
+          <div class="form-group">
+            <input type="text" placeholder="Firstname" name="firstname" required><span class="padding"></span>
+            <input type="text" placeholder="Lastname" name="lastname" required>
+          </div>
+          <input type="email" placeholder="Email" name="email" required>
+          <input type="password" placeholder="Password" name="password" required>
+          <input type="password" placeholder="Confirm Password" name="confirmpassword" required>
+          <input type="submit" value="Register" class="glass-btn">
+        </form>
+      </div>
+      <!-- h2 Hello world!-->
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
+    <script src="{% static 'phrasebook/js/labels.js' %}"></script>
+  </body>
+</html>

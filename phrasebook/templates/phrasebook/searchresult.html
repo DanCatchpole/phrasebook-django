@@ -1,0 +1,21 @@
+{% if words__len > 0 %}
+    {% for word in words %}
+        <div class="wordBlock">
+            <span class="lang">{{ word.foreign }}</span>
+            <span class="padding"></span>
+            <span class="english">{{ word.english }}</span>
+            <span class="padding"></span>
+            <input type="hidden" class="word_id" value="{{ word.id }}">
+            {% if word.starred %}
+                <span class="starred"><i class="fa fa-fw fa-star star-on"></i></span>
+            {% else %}
+                <span class="starred"><i class="fa fa-fw fa-star star-off"></i></span>
+            {% endif %}
+            <span class="starred"><i class="fa fa-fw fa-pencil"></i></span>
+        </div>
+    {% endfor %}
+{% else %}
+    <div style='padding: 1rem; color:#d12929; font-weight: 600;' class='wordBlock'> No words match this query: {{ search_param }}.</div>
+{% endif %}
+
+

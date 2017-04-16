@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Phrasebook - New Category</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="https://dcatcher.me/assets/favicon.png">
+  </head>
+  <body>
+    {% include "phrasebook/sidebar.html" %}
+    <main>
+        <div class="topBar">
+            <div class="top">
+                <span class="mainTitle">
+                    <i class="fa fa-fw fa-plus"></i>
+                    <span>New Category</span>
+                </span>
+            </div>
+        </div>
+        <div class="content">
+            <form action="{% url 'phrasebook:new_category' %}" method="post" class="appForm">{% csrf_token %}
+                <label for="category">Category</label>
+                <input type="text" name="category" id="category" required>
+                <label for="shortened">A short way of knowing this category (maybe the first few letters?)</label>
+                <input type="text" name="shortened" id="shortened" required>
+                <input type="submit" value="Add new category" class="bgPrimary">
+
+            </form>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
+    <script src="{% static 'phrasebook/js/languagePicker.js' %}"></script>
+    <script src="{% static 'phrasebook/js/sidebar.js' %}"></script>
+  </body>
+</html>
