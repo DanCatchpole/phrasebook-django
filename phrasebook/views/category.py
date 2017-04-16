@@ -23,7 +23,8 @@ def get_category(request, id):
                       context=get_sidebar_args(request, {"category": cat,
                                                          "words": words,
                                                          "category__len": words.count,
-                                                         "current_category_id": cat.id}))
+                                                         "current_category_id": cat.id,
+                                                         "notes": render_dcmarkup(cat.description)}))
     else:
         return redirect("phrasebook:all_categories")
 
@@ -105,15 +106,19 @@ def update_notes(request, id):
             if render == "false":
                 cat.description = replace
                 cat.save()
-            lines = str(replace).split('\n')
-            output = ""
-            for line in lines:
-                if line.startswith("#"):
-                    output += "<span class='h4'>" + line[1:] + "</span>"
-                elif line.startswith("="):
-                    output += "<p>"
-                elif line.startswith("/="):
-                    output += "</p>"
-                else:
-                    output += line
-            return JsonResponse({"status": "success", "message": output})
+            return JsonResponse({"status": "success", "message": render_dcmarkup(replace)})
+
+
+def render_dcmarkup(markup):
+    lines = str(markup).split('\n')
+    output = ""
+    for line in lines:
+        if line.startswith("#"):
+            output += "<div class='h4'>" + line[1:] + "</div>"
+        elif line.startswith("="):
+            output += "<p>"
+        elif line.startswith("/="):
+            output += "</p>"
+        else:
+            output += line
+    return output
