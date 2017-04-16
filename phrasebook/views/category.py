@@ -31,7 +31,7 @@ def get_category(request, id):
 @login_required()
 @decorator_from_middleware(FirstLoginMiddleware)
 def all_categories(request):
-    cats = list(Category.objects.filter(user=request.user).order_by('-pinned', 'name').annotate(num_words=Count('word')))
+    cats = list(Category.objects.filter(user=request.user, language__flag_name=request.session['current_language']).order_by('-pinned', 'name').annotate(num_words=Count('word')))
     return render(request, "phrasebook/allcategories.html",
                   context=get_sidebar_args(request, {"categories": cats, "all_categories": "active"}))
 

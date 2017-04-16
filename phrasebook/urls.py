@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^app/?$', general.app, name="app"),
 
     url(r'^language/register/?$', language.register_user_language, name="register_user_language"),
+    url(r'^language/change/(?P<flag_name>[a-z]+)/?$', language.change_language, name="change_language"),
     url(r'^category/(?P<id>[0-9]+)/?$', category.get_category, name="get_category"),
     url(r'^category/all/?$', category.all_categories, name="all_categories"),
     url(r'^category/new/?$', category.new_category, name="new_category"),

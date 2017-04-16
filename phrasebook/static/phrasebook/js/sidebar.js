@@ -38,7 +38,6 @@ $(document).ready(function() {
     });
     $(".language-picker div.container").click(function(event) {
         event.stopPropagation();
-        return false;
     });
 
 

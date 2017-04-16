@@ -11,7 +11,7 @@
             {% endif %}
             {% for language in languages %}
                 {% if language.flag_name != current_language.flag_name %}
-                    <a class="language-block" style="background-color:{{ language.color }}" href="#">
+                    <a class="language-block" style="background-color:{{ language.color }}" href="{% url 'phrasebook:change_language' language.flag_name %}">
                         <span class="language-title">{{ language.english_name }}</span>
                         <img src="https://dcatcher.me/assets/{{ language.flag_name }}.svg" alt="{{ language.english_name }}" class="language-icon">
                         <span class="hidden">{{ language.flag_name }}</span>
