@@ -37,6 +37,7 @@ $redd: #FF2700;
 
 
 @import "glass";
+@import "dancss/all";
 
 #linearGradient6386 {
     animation: trans 10s;
@@ -617,16 +618,19 @@ main.noSidebar {
     }
 }
 
-
+.description-editor {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    font-size: 1.25rem;
+    font-family: $rale;
+}
 
 .hidden {
     display: none;
 }
 
 input.search {
-    -webkit-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.3);
-    -moz-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.3);
-    box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.3);
     padding: 0.5rem 1rem;
     border: 1px solid darken($bordercolor, 10%);
 }
@@ -647,6 +651,7 @@ div.language-selector {
     flex-wrap: wrap;
     //padding: 1rem;
     width: 100%;
+    overflow-y: auto;
     .language-block {
         display: flex;
         text-decoration: none;
@@ -1267,7 +1272,7 @@ div.successMessage {
     }
 }
 
-a.button {
+a.button2 {
     background-color: $primary;
     color: #fff;
     padding: 0.5rem 1rem;
@@ -1285,7 +1290,7 @@ a.button {
 }
 
 
-a.button:hover {
+a.button2:hover {
     background-color: darken($primary, 10%);
     -webkit-box-shadow: 5px 5px 5px -2px rgba(0,0,0,0.5);
     -moz-box-shadow: 5px 5px 5px -2px rgba(0,0,0,0.5);
@@ -1798,6 +1803,7 @@ div.language-picker {
         //border-radius: 0.5rem;
         display: flex;
         flex-direction: column;
+        min-height: 17.5rem;
 
         div.container-title {
             align-self: center;
@@ -1805,6 +1811,7 @@ div.language-picker {
             font-size: 2rem;
             font-weight: 700;
             background-color: white;
+            color: #333;
             width: 100%;
             position: relative;
             padding: 1rem 2rem 1rem 1rem;
@@ -1818,9 +1825,10 @@ div.language-picker {
 
             .close {
                 position: absolute;
-                top: -1rem;
-                right: -1rem;
-
+                top: 1rem;
+                right: 1rem;
+                text-decoration: none;
+                color: #333;
             }
         }
 

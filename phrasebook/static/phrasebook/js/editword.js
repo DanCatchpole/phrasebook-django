@@ -48,6 +48,33 @@ $(function() {
         });
 
     });
+
+
+    // Edit notes
+    $("#edit_notes").click(function() {
+        // check if "edit" or "save"
+        let $content = $(".content");
+        if($(this).text() === "Edit") {
+            // edit
+            $(".description-editor").removeClass("hidden");
+            $(".notes").addClass("hidden");
+            $(this).removeClass("bg--deepOrange").addClass("bg--olive").text("Save");
+        } else {
+            // save
+            let value = $(".description-editor").val();
+            $.post("./notes/update/", {
+                "notes": value,
+                "renderonly": "false"
+            }, function(data) {
+                console.log(data);
+                $(".description-editor").addClass("hidden");
+                $(".notes").html(data.message).removeClass("hidden");
+            });
+            // $content.html(value.replace('<script>'));
+            $(this).addClass("bg--deepOrange").removeClass("bg--olive").text("Save");
+            $(this).text("Edit");
+        }
+    });
 });
 
 

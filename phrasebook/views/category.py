@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import FieldDoesNotExist, ObjectDoesNotExist
 from django.db.models import Count
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.utils.decorators import decorator_from_middleware
 
@@ -31,7 +31,9 @@ def get_category(request, id):
 @login_required()
 @decorator_from_middleware(FirstLoginMiddleware)
 def all_categories(request):
-    cats = list(Category.objects.filter(user=request.user, language__flag_name=request.session['current_language']).order_by('-pinned', 'name').annotate(num_words=Count('word')))
+    cats = list(
+        Category.objects.filter(user=request.user, language__flag_name=request.session['current_language']).order_by(
+            '-pinned', 'name').annotate(num_words=Count('word')))
     return render(request, "phrasebook/allcategories.html",
                   context=get_sidebar_args(request, {"categories": cats, "all_categories": "active"}))
 
@@ -53,6 +55,7 @@ def new_category(request):
         return redirect("phrasebook:app")
 
 
+@login_required()
 def pin_category(request, id):
     category = Category.objects.get(id=id)
     if category.user == request.user:
@@ -64,3 +67,53 @@ def pin_category(request, id):
             return redirect("phrasebook:app")
     else:
         return redirect("phrasebook:app")
+
+
+@login_required()
+def category_notes(request, id):
+    try:
+        cat = Category.objects.get(id=id)
+    except ObjectDoesNotExist:
+        cat = None
+    words = Word.objects.filter(category=cat).order_by('-starred', 'foreign')
+    if cat is not None and cat.user == request.user:
+        return render(request, "phrasebook/categorynotes.html",
+                      context=get_sidebar_args(request, {"category": cat,
+                                                         "words": words,
+                                                         "category__len": words.count,
+                                                         "current_category_id": cat.id,
+                                                         "notes": cat.description}))
+    else:
+        return redirect("phrasebook:all_categories")
+
+
+@login_required()
+def update_notes(request, id):
+    if request.method == "GET":
+        return redirect("phrasebook:app")
+    elif request.method == "POST":
+        try:
+            cat = Category.objects.get(id=id)
+        except ObjectDoesNotExist:
+            return JsonResponse({"status": "error", "message": "Category doesn't exist"})
+
+        if cat.user != request.user:
+            return JsonResponse({"status": "error", "message": "Category doesn't exist"})
+        else:
+            replace = request.POST.get('notes')
+            render = request.POST.get('renderonly')
+            if render == "false":
+                cat.description = replace
+                cat.save()
+            lines = str(replace).split('\n')
+            output = ""
+            for line in lines:
+                if line.startswith("#"):
+                    output += "<span class='h4'>" + line[1:] + "</span>"
+                elif line.startswith("="):
+                    output += "<p>"
+                elif line.startswith("/="):
+                    output += "</p>"
+                else:
+                    output += line
+            return JsonResponse({"status": "success", "message": output})

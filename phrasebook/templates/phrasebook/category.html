@@ -22,12 +22,13 @@
                     <span class="num-badge">{{ category__len }}</span>
                 </span>
                 <div class="buttons">
-                    <a href="{% url 'phrasebook:new_word' category.id %}" class="button">Add new Word</a>
+                    <a href="{% url 'phrasebook:new_word' category.id %}" class="button bg--deepOrange white">Add new Word</a>
                     {% if category.pinned %}
-                        <a href="{% url 'phrasebook:pin_category' category.id %}" class="button pinned"><i class="fa fa-fw fa-circle"></i></a>
+                        <a href="{% url 'phrasebook:pin_category' category.id %}" class="button pinned white"><i class="fa fa-fw fa-circle"></i></a>
                     {% else %}
-                        <a href="{% url 'phrasebook:pin_category' category.id %}" class="button pin"><i class="fa fa-fw fa-thumb-tack fa-rotate-45"></i></a>
+                        <a href="{% url 'phrasebook:pin_category' category.id %}" class="button pin white" ><i class="fa fa-fw fa-thumb-tack fa-rotate-45"></i></a>
                     {% endif %}
+                    <a href="{% url 'phrasebook:category_notes' category.id %}" class="button bg--olive white">Notes</a>
                     <form onkeypress="return event.keyCode !== 13;" class="searchBox">
                         <input type="hidden" id="username" value="{{ username }}">
                         <input type="hidden" id="shortenedLanguage" value="{{ current_language.flag_name }}">
