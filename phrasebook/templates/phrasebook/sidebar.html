@@ -39,7 +39,12 @@
         </ul>
         <ul class="dropdown-elements">
 {#            <li class="hide hidden"><a href="#settings#"><i class="fa fa-fw fa-cog"></i></a></li>#}
-            <li class="hide hidden"><a href="{% url 'phrasebook:logout' %}" class="logout"><i class="fa fa-fw fa-sign-out"></i></a></li>
+            <li class="hide hidden">
+                <a href="{% url 'phrasebook:logout' %}" class="logout">
+                    <i class="fa fa-fw fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
         </ul>
     </div>
     <ul class="main">
