@@ -42,8 +42,13 @@ def all_categories(request):
     elif request.method == "POST":
         user_categories = list(Category.objects.filter(user=request.user, language__flag_name=request.session['current_language']))
         word_id = request.POST.get('word_id')
-        return render(request, "phrasebook/categorylist.html", context={"categories": user_categories,
-                                                                        "word_id": word_id})
+        try:
+            word = Word.objects.get(id=word_id)
+            return render(request, "phrasebook/categorylist.html", context={"categories": user_categories,
+                                                                            "word_id": word_id,
+                                                                            "word": word})
+        except ObjectDoesNotExist:
+            return JsonResponse({"status": "error"})
 
 
 @login_required()
