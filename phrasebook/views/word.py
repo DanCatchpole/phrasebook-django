@@ -80,7 +80,9 @@ def search_word(request):
                 | Word.objects.filter(english__icontains=contains, category_id=category_id,
                                       category__user=request.user))
 
-        return render(request, "phrasebook/searchresult.html", context={"words": words, "words__len": words.__len__(), "search_param": contains})
+        return render(request, "phrasebook/searchresult.html",
+                      context={"words": words, "words__len": words.__len__(), "search_param": contains})
+
 
 @login_required()
 def update_word(request):
@@ -105,3 +107,18 @@ def update_word(request):
                 return JsonResponse({"status": "error", "message": "Could not update - 'news are empty'"})
         else:
             return JsonResponse({"status": "error", "message": "Could not update"})
+
+
+@login_required()
+def move_category(request, word_id, category_id):
+    try:
+        word = Word.objects.get(id=word_id)
+        category = Category.objects.get(id=category_id)
+        if word.category.user == request.user and category.user == request.user:
+            word.category = category
+            word.save()
+            return redirect("phrasebook:get_category", category.id)
+        else:
+            return redirect("phrasebook:app")
+    except ObjectDoesNotExist:
+        return redirect("phrasebook:app")

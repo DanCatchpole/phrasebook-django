@@ -23,8 +23,11 @@ urlpatterns = [
     url(r'^category/new/?$', category.new_category, name="new_category"),
     url(r'^category/pin/(?P<id>[0-9]+)/?$', category.pin_category, name="pin_category"),
 
+
     url(r'^word/new/(?P<cid>[0-9]+)/?$', word.new_word, name="new_word"),
     url(r'^word/star/?$', word.star_word, name="star_word"),
     url(r'^word/search/?$', word.search_word, name="search_word"),
     url(r'^word/update/?$', word.update_word, name="update_word"),
+    url(r'^word/(?P<word_id>[0-9]+)/move/(?P<category_id>[0-9]+)/?$', word.move_category, name="move_category"),
+
 ]

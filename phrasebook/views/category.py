@@ -32,11 +32,18 @@ def get_category(request, id):
 @login_required()
 @decorator_from_middleware(FirstLoginMiddleware)
 def all_categories(request):
-    cats = list(
-        Category.objects.filter(user=request.user, language__flag_name=request.session['current_language']).order_by(
-            '-pinned', 'name').annotate(num_words=Count('word')))
-    return render(request, "phrasebook/allcategories.html",
-                  context=get_sidebar_args(request, {"categories": cats, "all_categories": "active"}))
+    if request.method == "GET":
+        cats = list(
+            Category.objects.filter(user=request.user,
+                                    language__flag_name=request.session['current_language']).order_by(
+                '-pinned', 'name').annotate(num_words=Count('word')))
+        return render(request, "phrasebook/allcategories.html",
+                      context=get_sidebar_args(request, {"categories": cats, "all_categories": "active"}))
+    elif request.method == "POST":
+        user_categories = list(Category.objects.filter(user=request.user, language__flag_name=request.session['current_language']))
+        word_id = request.POST.get('word_id')
+        return render(request, "phrasebook/categorylist.html", context={"categories": user_categories,
+                                                                        "word_id": word_id})
 
 
 @login_required()

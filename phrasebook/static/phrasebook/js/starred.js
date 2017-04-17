@@ -28,7 +28,7 @@ $(function() {
                 console.log($obj);
                 $obj.removeClass('star-on');
                 $obj.addClass('star-off');
-
+                $obj.parent().attr("title", "Star")
             }
         })
     });
@@ -43,6 +43,7 @@ $(function() {
                 console.log($obj);
                 $obj.removeClass('star-off');
                 $obj.addClass('star-on');
+                $obj.parent().attr("title", "Unstar")
             }
         })
     });

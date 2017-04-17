@@ -1767,4 +1767,19 @@ object {
 .margin-top-3 {
   margin-top: 3rem; }
 
+.category-selector {
+  display: flex;
+  flex-direction: column; }
+  .category-selector a.category {
+    width: 100%;
+    border-bottom: 1px solid #d1d1d1;
+    color: #222;
+    text-decoration: none;
+    padding: 0.5rem 1rem; }
+    .category-selector a.category i {
+      font-weight: 700;
+      font-style: normal; }
+  .category-selector a.category:nth-child(2n+1) {
+    background-color: #e9e9e9; }
+
 /*# sourceMappingURL=main.css.map */

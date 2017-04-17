@@ -1866,3 +1866,25 @@ object {
 .margin-top-3 {
     margin-top: 3rem;
 }
+
+.category-selector {
+    display: flex;
+    flex-direction: column;
+
+    a.category {
+        width: 100%;
+        border-bottom: 1px solid $bordercolor;
+        color: #222;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+
+        i {
+            font-weight: 700;
+            font-style: normal;
+        }
+    }
+
+    a.category:nth-child(2n+1) {
+        background-color: #e9e9e9;
+    }
+}

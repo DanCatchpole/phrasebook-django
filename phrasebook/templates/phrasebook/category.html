@@ -44,8 +44,10 @@
                 <span class="padding"></span>
                 <span class="english"><h1>English</h1></span>
                 <span class="padding"></span>
-                <span class="starred"><i class="fa fa-fw fa-star"></i></span>
-                <span class="starred"><i class="fa fa-fw fa-pencil"></i></span>
+                <span class="starred"><i class="fa fa-fw "></i></span>
+                <span class="starred" title="Edit"><i class="fa fa-fw "></i></span>
+                <span class="starred" title="Move"><i class="fa fa-fw "></i></span>
+
             </div>
 
             <div class="allWords">
@@ -57,11 +59,12 @@
                         <span class="padding"></span>
                         <input type="hidden" class="word_id" value="{{ word.id }}">
                         {% if word.starred %}
-                            <span class="starred"><i class="fa fa-fw fa-star star-on"></i></span>
+                            <span class="starred" title="Unstar"><i class="fa fa-fw fa-star star-on"></i></span>
                         {% else %}
-                            <span class="starred"><i class="fa fa-fw fa-star star-off"></i></span>
+                            <span class="starred" title="Star"><i class="fa fa-fw fa-star star-off"></i></span>
                         {% endif %}
-                        <span class="edit starred"><i class="fa fa-fw fa-pencil"></i></span>
+                        <span class="edit starred" title="Edit word"><i class="fa fa-fw fa-pencil"></i></span>
+                        <span class="move starred" title="Change category"><i class="fa fa-fw fa-long-arrow-right"></i></span>
                     </div>
                 {% endfor %}
             </div>
@@ -81,5 +84,6 @@
     <script src="{% static 'phrasebook/js/editword.js' %}"></script>
     <script src="{% static 'phrasebook/js/starred.js' %}"></script>
     <script src="{% static 'phrasebook/js/search.js' %}"></script>
+    <script src="{% static 'phrasebook/js/changecategory.js' %}"></script>
   </body>
 </html>

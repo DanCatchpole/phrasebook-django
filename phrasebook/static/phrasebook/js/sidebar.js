@@ -36,12 +36,12 @@ $(document).ready(function() {
         $("div.language-picker").css({'display': "flex"});
         $("div.language-picker").animate({"opacity": 1});
     });
-    $(".language-picker div.container").click(function(event) {
+    $("body").on('click', '.language-picker div.container', function(event) {
         event.stopPropagation();
     });
 
 
-    $(".language-picker").click(function(event) {
+    $("body").on('click', '.language-picker', function(event) {
         $("div.language-picker").animate({"opacity": 0}, function() {
             $("div.language-picker").css({'display': "none"});
 

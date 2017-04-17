@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="container-title">
+        <i class="fa fa-fw fa-long-arrow-right"></i>
+        <span>Move to category</span>
+        <a href="#" class="close"><i class="fa fa-fw fa-close"></i></a>
+    </div>
+    <div class="category-selector">
+        {% for category in categories %}
+            <a href="{% url 'phrasebook:move_category' word_id category.id %}" class="category">
+                <i>{{ category.shortened }}</i>
+                <span>{{ category.name }}</span>
+            </a>
+        {% endfor %}
+    </div>
+</div>
