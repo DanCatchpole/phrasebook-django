@@ -58,7 +58,7 @@ $(function() {
             // edit
             $(".description-editor").removeClass("hidden");
             $(".notes").addClass("hidden");
-            $(this).removeClass("bg--deepOrange").addClass("bg--olive").text("Save");
+            $(this).text("Save");
         } else {
             // save
             let value = $(".description-editor").val();
@@ -71,7 +71,7 @@ $(function() {
                 $(".notes").html(data.message).removeClass("hidden");
             });
             // $content.html(value.replace('<script>'));
-            $(this).addClass("bg--deepOrange").removeClass("bg--olive").text("Save");
+            $(this).text("Save");
             $(this).text("Edit");
         }
     });

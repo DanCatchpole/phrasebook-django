@@ -21,24 +21,25 @@
                     <span class="padding"></span>
                     <span class="num-badge">{{ category__len }}</span>
                 </span>
-                <div class="buttons">
-                    <a href="{% url 'phrasebook:new_word' category.id %}" class="button bg--deepOrange white">Add new Word</a>
-                    {% if category.pinned %}
-                        <a href="{% url 'phrasebook:pin_category' category.id %}" class="button pinned white"><i class="fa fa-fw fa-circle"></i></a>
-                    {% else %}
-                        <a href="{% url 'phrasebook:pin_category' category.id %}" class="button pin white" ><i class="fa fa-fw fa-thumb-tack fa-rotate-45"></i></a>
-                    {% endif %}
-                    <a href="{% url 'phrasebook:category_notes' category.id %}" class="button bg--olive white">Notes</a>
-                    <form onkeypress="return event.keyCode !== 13;" class="searchBox">
-                        <input type="hidden" id="username" value="{{ username }}">
-                        <input type="hidden" id="shortenedLanguage" value="{{ current_language.flag_name }}">
-                        <input type="hidden" id="category" value="{{ category.id }}">
-                        <input type="text" placeholder="Search" id="search" class="search" autofocus>
-                    </form>
-                </div>
             </div>
         </div>
-        <div class="content">
+        <div class="mini-bar">
+            <a href="{% url 'phrasebook:new_word' category.id %}" class="button black button-add" title="Add new Word"><i class="fa fa-fw fa-plus"></i> Add new Word</a>
+            {% if category.pinned %}
+                <a href="{% url 'phrasebook:pin_category' category.id %}" class="button black" title="Unpin"><i class="fa fa-fw fa-circle"></i> Unpin</a>
+            {% else %}
+                <a href="{% url 'phrasebook:pin_category' category.id %}" class="button black" title="Pin"><i class="fa fa-fw fa-thumb-tack fa-rotate-45"></i>Pin</a>
+            {% endif %}
+            <a href="{% url 'phrasebook:category_notes' category.id %}" class="button black" title="Notes"><i class="fa fa-fw fa-sticky-note-o"></i> Notes</a>
+            <div class="sticky-push"></div>
+            <form onkeypress="return event.keyCode !== 13;" class="searchBox">
+                <input type="hidden" id="username" value="{{ username }}">
+                <input type="hidden" id="shortenedLanguage" value="{{ current_language.flag_name }}">
+                <input type="hidden" id="category" value="{{ category.id }}">
+                <input type="text" placeholder="Search" id="search" class="search">
+            </form>
+        </div>
+        <div class="content" tabindex="1">
             <div class="wordBlock wbtitle">
                 <span class="lang"><h1>{{ category.language.english_name }}</h1></span>
                 <span class="padding"></span>
