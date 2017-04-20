@@ -24,13 +24,15 @@
             </div>
         </div>
         <div class="mini-bar">
-            <a href="{% url 'phrasebook:new_word' category.id %}" class="button black button-add" title="Add new Word"><i class="fa fa-fw fa-plus"></i> Add new Word</a>
-            {% if category.pinned %}
-                <a href="{% url 'phrasebook:pin_category' category.id %}" class="button black" title="Unpin"><i class="fa fa-fw fa-circle"></i> Unpin</a>
-            {% else %}
-                <a href="{% url 'phrasebook:pin_category' category.id %}" class="button black" title="Pin"><i class="fa fa-fw fa-thumb-tack fa-rotate-45"></i>Pin</a>
-            {% endif %}
-            <a href="{% url 'phrasebook:category_notes' category.id %}" class="button black" title="Notes"><i class="fa fa-fw fa-sticky-note-o"></i> Notes</a>
+            <div class="buttons">
+                <a href="{% url 'phrasebook:new_word' category.id %}" class="button black button-add" title="Add new Word"><i class="fa fa-fw fa-plus"></i> Add new Word</a>
+                {% if category.pinned %}
+                    <a href="{% url 'phrasebook:pin_category' category.id %}" class="button black" title="Unpin"><i class="fa fa-fw fa-circle"></i> Unpin</a>
+                {% else %}
+                    <a href="{% url 'phrasebook:pin_category' category.id %}" class="button black" title="Pin"><i class="fa fa-fw fa-thumb-tack fa-rotate-45"></i>Pin</a>
+                {% endif %}
+                <a href="{% url 'phrasebook:category_notes' category.id %}" class="button black" title="Notes"><i class="fa fa-fw fa-sticky-note-o"></i> Notes</a>
+            </div>
             <div class="sticky-push"></div>
             <form onkeypress="return event.keyCode !== 13;" class="searchBox">
                 <input type="hidden" id="username" value="{{ username }}">

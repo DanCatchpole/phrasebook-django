@@ -1155,13 +1155,13 @@ form.appForm {
   flex-shrink: 0;
   align-items: center;
   flex-wrap: wrap; }
-  .mini-bar .button {
+  .mini-bar .buttons .button {
     height: 3rem;
     display: flex;
     align-items: center;
     transition: background-color 0.2s;
     border-right: 1px solid #d1d1d1; }
-  .mini-bar .button:hover {
+  .mini-bar .buttons .button:hover {
     background-color: rgba(0, 0, 0, 0.1); }
 
 .mainTitle {
@@ -1335,8 +1335,6 @@ div.successMessage {
 .buttons {
   display: flex;
   flex-direction: row; }
-  .buttons a {
-    margin: 0rem 0.25rem; }
   .buttons a.pin {
     background-color: #1ba456; }
   .buttons a.pin:hover {
@@ -1590,6 +1588,13 @@ span.num-badge {
   body {
     flex-direction: column; }
 
+  form.searchBox {
+    width: 100%; }
+    form.searchBox input[type=text] {
+      width: 100%;
+      border: 0;
+      border-top: 1px solid #d1d1d1; }
+
   .navDetails {
     width: 20rem; }
 
@@ -1668,7 +1673,6 @@ span.num-badge {
     flex-direction: column; }
     .top .mainTitle {
       font-size: 1.5rem;
-      font-weight: 700;
       color: #333;
       font-weight: 600;
       width: 100%; }
@@ -1682,11 +1686,13 @@ span.num-badge {
         font-weight: 700; }
     .top .button {
       display: none;
-      margin-left: 0rem;
+      margin-left: 0;
       margin-top: 0.5rem; }
 
+  .mini-bar .buttons {
+    width: 100%; }
   .mini-bar .button {
-    border-bottom: 1px solid #d1d1d1; }
+    flex-grow: 1; }
 
   .wordBlock {
     width: 100%; }

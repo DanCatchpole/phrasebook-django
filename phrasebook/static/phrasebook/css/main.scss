@@ -1029,6 +1029,7 @@ form.appForm {
     align-items: center;
     flex-wrap: wrap;
     //padding: 0rem 0.5rem;
+    .buttons {
     .button {
         //border: 1px solid $bordercolor;
         height: 3rem;
@@ -1039,6 +1040,7 @@ form.appForm {
     }
     .button:hover {
         background-color: rgba(0,0,0,0.1);
+    }
     }
 }
 
@@ -1284,9 +1286,6 @@ div.successMessage {
     flex-direction: row;
     // justify-content: space-between;
 
-    a {
-        margin: 0rem 0.25rem;
-    }
 
     a.pin {
         background-color: $lightGreen;
@@ -1640,6 +1639,15 @@ span.num-badge {
         flex-direction: column;
     }
 
+    form.searchBox {
+        width: 100%;
+        input[type=text] {
+            width: 100%;
+            border: 0;
+            border-top: 1px solid $bordercolor;
+        }
+    }
+
     .navDetails {
         width: 20rem;
     }
@@ -1746,7 +1754,6 @@ span.num-badge {
         flex-direction: column;
         .mainTitle {
             font-size: 1.5rem;
-            font-weight: 700;
             color: #333;
             font-weight: 600;
             width: 100%;
@@ -1763,14 +1770,18 @@ span.num-badge {
         }
         .button {
             display: none;
-            margin-left: 0rem;
+            margin-left: 0;
             margin-top: 0.5rem;
         }
     }
 
     .mini-bar {
+        .buttons {
+            width: 100%;
+        }
         .button {
-            border-bottom: 1px solid $bordercolor;
+            //border-bottom: 1px solid $bordercolor;
+            flex-grow: 1;
         }
     }
 
