@@ -48,5 +48,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
     <script src="{% static 'phrasebook/js/languagePicker.js' %}"></script>
     <script src="{% static 'phrasebook/js/sidebar.js' %}"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('{% static 'phrasebook/js/sw.js' %}').then(function(registration) {
+              // Registration was successful
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+              // registration failed :(
+              console.log('ServiceWorker registration failed: ', err);
+            });
+          });
+}
+    </script>
   </body>
 </html>
