@@ -1,8 +1,8 @@
 var CACHE_NAME = 'dcatcher-phrasebook-cache-v1';
 var urlsToCache = [
   '/phrasebook',
-  '/static/css/main.css',
-  '/static/js'
+  '/static/phrasebook/css/main.css',
+  '/static/phrasebook/js'
 ];
 
 self.addEventListener('install', function(event) {
