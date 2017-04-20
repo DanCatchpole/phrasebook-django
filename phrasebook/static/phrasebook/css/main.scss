@@ -1689,6 +1689,8 @@ span.num-badge {
                     display: flex;
                     padding: 0.75rem;
                     justify-content: center;
+                    color: white;
+                    text-decoration: none;
                     img.icon {
                         max-height: 1.5rem;
                         margin: 0;
@@ -1696,6 +1698,12 @@ span.num-badge {
                     img.flag {
                         max-height: 1rem;
                         margin: 0;
+                    }
+
+                    i {
+                        color: white;
+                        text-decoration: none;
+                        line-height:1.5rem;
                     }
                 }
 
