@@ -16,7 +16,8 @@ def index(request):
 def app(request):
     words = Word.objects.filter(category__user=request.user).order_by("-created_on")[:10]
     return render(request, 'phrasebook/app.html',
-                  context=get_sidebar_args(request, {"words": words, "words__len": words.__len__(), "page_app": "active"}))
+                  context=get_sidebar_args(request,
+                                           {"words": words, "words__len": words.__len__(), "page_app": "active"}))
 
 
 @login_required()
@@ -27,3 +28,8 @@ def first_login(request):
     else:
         languages = list(Language.objects.all().order_by('english_name'))
         return render(request, 'phrasebook/firstlogin.html', context={'languages': languages})
+
+
+@login_required()
+def lang_pick(request):
+    return render(request, 'phrasebook/changelanguage.html', context=get_sidebar_args(request, {}))

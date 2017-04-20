@@ -1502,8 +1502,14 @@ span.num-badge {
   font-family: "Montserrat", sans-serif; }
 
 @media only screen and (max-width: 480px) {
+  main {
+    overflow-y: auto; }
+
   .content.category {
-    padding: 0rem; }
+    padding: 0; }
+
+  .content {
+    overflow-y: visible; }
 
   body.loginPage {
     background-color: white; }
@@ -1603,20 +1609,24 @@ span.num-badge {
       margin: 0;
       height: 100%;
       display: flex; }
+      .sideBarMOB ul li:last-child a {
+        border-right: 1px solid #333; }
       .sideBarMOB ul li {
         margin: 0;
         padding: 0;
         height: 100%; }
         .sideBarMOB ul li a {
           line-height: 1rem;
-          font-size: 1rem; }
+          font-size: 1rem;
+          border-left: 1px solid #333; }
           .sideBarMOB ul li a b {
             font-style: normal; }
         .sideBarMOB ul li a:not(.icon) {
           font-style: normal;
           display: flex;
           justify-content: center;
-          padding: 1rem 0.5rem;
+          align-items: center;
+          padding: 0.5rem 0.75rem;
           color: white;
           text-decoration: none;
           height: 100%; }
@@ -1720,7 +1730,15 @@ span.num-badge {
 
   .wbadd {
     flex-direction: row;
-    display: flex; } }
+    display: flex; }
+
+  div.language-selector .language-block {
+    width: 100%;
+    height: 10rem;
+    flex-direction: row-reverse;
+    justify-content: space-around; }
+    div.language-selector .language-block span.language-title {
+      margin: 0; } }
 img.sidebar-arrow {
   align-self: center;
   align-content: center;
@@ -1783,6 +1801,9 @@ div.language-picker {
         right: 1rem;
         text-decoration: none;
         color: #333; }
+
+div.language-picker.forced {
+  display: flex; }
 
 *::-webkit-scrollbar {
   width: 0.5rem; }
