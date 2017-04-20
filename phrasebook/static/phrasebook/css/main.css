@@ -1631,7 +1631,6 @@ span.num-badge {
           justify-content: center; }
           .sideBarMOB ul li a.icon img.icon {
             max-height: 1.5rem;
-            border-radius: 50%;
             margin: 0; }
           .sideBarMOB ul li a.icon img.flag {
             max-height: 1rem;
