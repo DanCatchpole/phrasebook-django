@@ -9,19 +9,19 @@
   font-style: normal;
   src: url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
   src: url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg"); }
-form.glass-form {
+.glass-form {
   display: flex;
   flex-direction: column;
   width: 100%; }
-  form.glass-form .form-group {
+  .glass-form .form-group {
     display: flex;
     justify-content: space-between; }
-    form.glass-form .form-group input {
+    .glass-form .form-group input {
       flex: 5;
       width: 100%; }
-    form.glass-form .form-group span.padding {
+    .glass-form .form-group span.padding {
       flex: 1; }
-  form.glass-form input[type="text"], form.glass-form input[type="password"], form.glass-form input[type="email"] {
+  .glass-form input[type="text"], .glass-form input[type="password"], .glass-form input[type="email"] {
     margin-bottom: 0.5rem;
     background-color: transparent;
     border: none;
@@ -30,7 +30,7 @@ form.glass-form {
     color: #dedede;
     font-size: 1.25rem;
     transition: 0.2s border-color; }
-  form.glass-form textarea {
+  .glass-form textarea {
     margin: 0.5rem 0;
     border: none;
     background-color: rgba(0, 0, 0, 0.1);
@@ -39,16 +39,16 @@ form.glass-form {
     font-size: 1.5rem;
     font-family: "Open Sans", sans-serif;
     padding: 1rem 1rem 0.75rem 1rem; }
-  form.glass-form input:disabled {
+  .glass-form input:disabled {
     color: #787878;
     border-bottom: 1px dashed #787878; }
-  form.glass-form input:focus, form.glass-form textarea:focus {
+  .glass-form input:focus, .glass-form textarea:focus {
     border-color: #2fa9d0; }
-  form.glass-form input:invalid input:-moz-submit-invalid, form.glass-form input:-moz-ui-invalid {
+  .glass-form input:invalid input:-moz-submit-invalid, .glass-form input:-moz-ui-invalid {
     box-shadow: none;
     border-bottom-color: #FF2700;
     color: #FF2700; }
-  form.glass-form input[type=submit] {
+  .glass-form input[type=submit] {
     margin-top: 1rem; }
 
 .glass-btnGroup {
@@ -111,6 +111,12 @@ ul.glass-breadcrumb {
   ul.glass-breadcrumb li:last-child a {
     font-weight: 700; }
 
+@media only screen and (max-width: 480px) {
+  .glass-btn {
+    color: #dedede; }
+
+  .glass-form input[type="text"], .glass-form input[type="password"], .glass-form input[type="email"] {
+    border-bottom: 1px solid #dedede; } }
 .bg--red {
   background-color: #FF4136; }
 
@@ -1364,7 +1370,9 @@ a.button2:hover {
 
 form.searchBox input[type=text] {
   height: 3rem;
-  border: 1px solid #d1d1d1; }
+  border: 0px;
+  border-left: 1px solid #d1d1d1;
+  border-right: 1px solid #d1d1d1; }
 
 ul.categoryList {
   list-style-type: none;
@@ -1494,6 +1502,9 @@ span.num-badge {
   font-family: "Montserrat", sans-serif; }
 
 @media only screen and (max-width: 480px) {
+  .content.category {
+    padding: 0rem; }
+
   body.loginPage {
     background-color: white; }
     body.loginPage main {
@@ -1508,10 +1519,11 @@ span.num-badge {
     height: 100%; }
 
   .loginBlock {
-    background-color: #fff;
+    background-color: #1b1b1b;
     border-radius: 0;
     height: 100%;
-    max-width: 100%; }
+    max-width: 100%;
+    padding: 1rem; }
     .loginBlock .formTitle {
       width: 100%;
       background-color: #1b1b1b;
@@ -1658,8 +1670,13 @@ span.num-badge {
       margin-left: 0rem;
       margin-top: 0.5rem; }
 
+  .mini-bar .button {
+    border-bottom: 1px solid #d1d1d1; }
+
   .wordBlock {
     width: 100%; }
+    .wordBlock span:not(.addnew):not(.padding):not(.language).starred {
+      display: none; }
 
   ul.categoryList {
     list-style-type: none;

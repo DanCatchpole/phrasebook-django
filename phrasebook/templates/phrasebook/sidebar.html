@@ -108,3 +108,22 @@
         </li>
     </ul>
 </nav>
+
+<nav class="sideBarMOB">
+    <ul>
+        <li>
+            <a href="{% url 'phrasebook:all_categories' %}" class="all {{ all_categories }}">
+                <span class="all">Categories</span>
+            </a>
+        </li>
+    </ul>
+    <div class="sticky-push"></div>
+    <ul>
+        <li>
+            <a href="{% url 'phrasebook:logout' %}" class="logout">
+                <i class="fa fa-fw fa-sign-out"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+    </ul>
+</nav>

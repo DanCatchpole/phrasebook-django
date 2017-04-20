@@ -1336,7 +1336,9 @@ form.searchBox {
     input[type=text] {
         height: 3rem;
         //margin: 0 .5rem;
-        border: 1px solid $bordercolor;
+        border: 0px;
+        border-left: 1px solid $bordercolor;
+        border-right: 1px solid $bordercolor;
     }
 }
 
@@ -1522,6 +1524,13 @@ span.num-badge {
 
 @media only screen and (max-width: 480px) {
 
+    .loginBlock {
+    }
+
+    .content.category {
+        padding: 0rem;
+    }
+
     body.loginPage {
         main {
             width: 100%;
@@ -1542,10 +1551,11 @@ span.num-badge {
     }
 
     .loginBlock {
-        background-color: #fff;
+        background-color: #1b1b1b;
         border-radius: 0;
         height: 100%;
         max-width: 100%;
+        padding: 1rem;
         .formTitle {
             width: 100%;
             background-color: $barColor;
@@ -1734,8 +1744,17 @@ span.num-badge {
         }
     }
 
+    .mini-bar {
+        .button {
+            border-bottom: 1px solid $bordercolor;
+        }
+    }
+
     .wordBlock {
         width: 100%;
+        span:not(.addnew):not(.padding):not(.language).starred {
+            display: none;
+        }
     }
 
     ul.categoryList {
