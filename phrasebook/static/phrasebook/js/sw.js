@@ -1,17 +1,26 @@
-var CACHE_NAME = 'dcatcher-phrasebook-cache-v1';
-var urlsToCache = [
-  '/phrasebook',
-  '/static/phrasebook/css/main.css',
-  '/static/phrasebook/js'
-];
 
-self.addEventListener('install', function(event) {
-  // Perform install steps
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+let version = '0.01';
+
+self.addEventListener('install', e => {
+  let timeStamp = Date.now();
+  e.waitUntil(
+    caches.open('phrasebook').then(cache => {
+      return cache.addAll([
+        `/phrasebook`,
+      ])
+      .then(() => self.skipWaiting());
+    })
+  )
+});
+
+self.addEventListener('activate',  event => {
+  event.waitUntil(self.clients.claim());
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request, {ignoreSearch:true}).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });

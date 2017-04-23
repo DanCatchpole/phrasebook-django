@@ -42,6 +42,8 @@
             </form>
         </div>
         <div class="content category" tabindex="1">
+
+            {% if words.len > 0 %}
             <div class="wordBlock wbtitle">
                 <span class="lang"><h1>{{ category.language.english_name }}</h1></span>
                 <span class="padding"></span>
@@ -50,8 +52,8 @@
                 <span class="starred"><i class="fa fa-fw "></i></span>
                 <span class="starred" title="Edit"><i class="fa fa-fw "></i></span>
                 <span class="starred" title="Move"><i class="fa fa-fw "></i></span>
-
             </div>
+            {% endif %}
 
             <div class="allWords">
                 {% for word in words %}

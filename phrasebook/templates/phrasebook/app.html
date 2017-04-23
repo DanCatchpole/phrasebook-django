@@ -61,5 +61,12 @@
           });
 }
     </script>
+    <script>
+        $(document).ready(function() {
+            $("body").on('click', '.flashcard-container', function(e) {
+                $(this).toggleClass('flip');
+            })
+        });
+    </script>
   </body>
 </html>

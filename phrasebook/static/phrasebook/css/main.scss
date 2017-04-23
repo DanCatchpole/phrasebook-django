@@ -257,7 +257,7 @@ main {
     display: flex;
     flex-direction: column;
     background-color: $barColor;
-
+    flex-shrink: 0;
     ul.main {
         flex-shrink: 0;
     }
@@ -1518,6 +1518,90 @@ span.num-badge {
     height: auto;
     line-height: 2rem;
     font-family: $mons;
+}
+
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    //perspective: 1000px;
+
+}
+.flashcard-container {
+
+    .flashcard {
+        .flashcard-side {
+            cursor: pointer;
+            width: 40vw;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            background-color: #fff;
+            border-radius: 2rem;
+            span {
+                color: #333;
+                font-size: 3rem;
+            }
+        }
+
+    }
+}
+
+/* entire container, keeps perspective */
+.flashcard-container {
+	perspective: 1000px;
+}
+/* flip the pane when hovered */
+ .flashcard-container.hover .flashcard, .flashcard-container.flip  .flashcard {
+	transform: rotateY(180deg);
+}
+
+
+.flashcard-container, .flashcard-side {
+	width: 40vw;
+	height: 40vh;
+}
+
+.flashcard {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+.flashcard-side {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+    img {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        border-radius: 50% 50% 50% 0;
+    }
+}
+
+/* front pane, placed above back */
+.flashcard-side.foreign {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.flashcard-side.english {
+	transform: rotateY(180deg);
 }
 
 
