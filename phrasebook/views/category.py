@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import FieldDoesNotExist, ObjectDoesNotExist
 from django.db.models import Count
@@ -40,7 +42,8 @@ def all_categories(request):
         return render(request, "phrasebook/allcategories.html",
                       context=get_sidebar_args(request, {"categories": cats, "all_categories": "active"}))
     elif request.method == "POST":
-        user_categories = list(Category.objects.filter(user=request.user, language__flag_name=request.session['current_language']))
+        user_categories = list(
+            Category.objects.filter(user=request.user, language__flag_name=request.session['current_language']))
         word_id = request.POST.get('word_id')
         try:
             word = Word.objects.get(id=word_id)
@@ -119,6 +122,36 @@ def update_notes(request, id):
                 cat.description = replace
                 cat.save()
             return JsonResponse({"status": "success", "message": render_dcmarkup(replace)})
+
+
+@login_required()
+def update_words(request, id):
+    rec = request.body.decode("utf-8")
+    # print(rec)
+    received_json = json.loads(request.body.decode("utf-8"))
+    # print(received_json)
+    # print(received_json["removed_words"])
+    # print(received_json["updated_words"])
+
+    for word in received_json["updated_words"]:
+        w = Word.objects.get(id=word['id'])
+        if w.foreign != word['foreign'] and w.english != word['english']:
+            w.foreign = word['foreign']
+            w.english = word['english']
+            if w.category.user == request.user and w.category.id == int(id):
+                w.save()
+        else:
+            continue
+
+    for word in received_json["removed_words"]:
+        w = Word.objects.get(id=word)
+        if w.category.user == request.user and w.category.id == int(id):
+            w.delete()
+
+    for word in received_json['new_words']:
+        w = Word(foreign=word['foreign'], english=word['english'], category_id=id)
+        w.save()
+    return JsonResponse({"status": "success"})
 
 
 def render_dcmarkup(markup):

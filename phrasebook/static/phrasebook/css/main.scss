@@ -1175,6 +1175,7 @@ div.successMessage {
             font-weight: 600;
             margin-left: -0.5rem;
             border: 1px solid $bordercolorDarker;
+            width: 100%;
         }
     }
 
@@ -1193,7 +1194,7 @@ div.successMessage {
             font-family: $mainFont;
             margin-left: -0.5rem;
             border: 1px solid $bordercolorDarker;
-
+            width: 100%;
         }
     }
 
@@ -1245,7 +1246,10 @@ div.successMessage {
 }
 
 .wordBlock.editing {
-    background-color: #999;
+    //background-color: #999;
+    span.starred {
+        display: none !important;
+    }
 }
 
 
@@ -2077,4 +2081,12 @@ object {
     a.category:nth-child(2n+1) {
         background-color: #e9e9e9;
     }
+}
+
+
+.disabled {
+    pointer-events: none;
+    background-color: rgb(227, 227, 227);
+    transition: background-color 0.2s;
+    //color: white;
 }
