@@ -23,7 +23,7 @@ $(function(){
                 } else {
                     parameters = { search: $(this).val(), short: $("#shortenedLanguage").val()};
                 }
-                $.post( constantsURL + '../word/search', parameters, function(data) {
+                $.post( constantsURL + '../../word/search/', parameters, function(data) {
                     $(".allWords").html("");
                     if (data.length === 0) {
                         $(".allWords").html();
