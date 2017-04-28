@@ -334,7 +334,7 @@ main {
                 }
             }
 
-            a:hover:not(.active):not(.logo):not(.userIcon) {
+            a:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) {
                 background-color: darken($primary, 10%);
                 color: white;
                 span {
@@ -397,6 +397,22 @@ main {
                         margin-right: -10px;
                         border-radius: 50% 50% 50% 0;
                     }
+                }
+            }
+
+            a.xp-bar {
+                position: relative;
+                padding: 0rem 0rem;
+                background-color: darken($barColor, 2%);
+                div.progress-bar {
+                    background-color: $darkBlue;
+                    position: absolute;
+                    height: 100%;
+                }
+
+                span {
+                    padding: 0.5rem 1.5rem;
+                    z-index: 2;
                 }
             }
 
