@@ -22,7 +22,7 @@ $(function() {
         var wordID = $(this).parent().parent().children(".word_id").val();
         var $obj = $(this);
         // console.log(wordID);
-        $.post(constantsURL + "../word/star", {categoryID: categoryID, starred: false, wordID: wordID}, function(data, status, jqXHR) {
+        $.post(constantsURL + "../../word/star/", {categoryID: categoryID, starred: false, wordID: wordID}, function(data, status, jqXHR) {
             console.log(data);
             if (data) {
                 console.log($obj);
@@ -37,7 +37,7 @@ $(function() {
         var wordID = $(this).parent().parent().children(".word_id").val();
         var $obj = $(this);
         // console.log(wordID);
-        $.post(constantsURL + "../word/star", {categoryID: categoryID, starred: true, wordID: wordID}, function(data, status, jqXHR) {
+        $.post(constantsURL + "../../word/star/", {categoryID: categoryID, starred: true, wordID: wordID}, function(data, status, jqXHR) {
             console.log(data);
             if (data) {
                 console.log($obj);

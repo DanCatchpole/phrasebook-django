@@ -1863,7 +1863,8 @@ div.language-picker {
       border-top-left-radius: 0.5rem;
       border-top-right-radius: 0.5rem;
       box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, 0.3);
-      z-index: 1001; }
+      z-index: 1001;
+      flex-shrink: 0; }
       div.language-picker div.container div.container-title i {
         margin: 0 0.5rem; }
       div.language-picker div.container div.container-title .close {
@@ -1901,7 +1902,9 @@ object {
 
 .category-selector {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto; }
   .category-selector a.category {
     width: 100%;
     border-bottom: 1px solid #d1d1d1;

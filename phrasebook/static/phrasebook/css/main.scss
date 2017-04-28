@@ -2009,6 +2009,9 @@ div.language-picker {
             border-top-right-radius: 0.5rem;
             box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.3);
             z-index: 1001;
+
+            flex-shrink: 0;
+
             i {
                 margin: 0 0.5rem;
             }
@@ -2064,6 +2067,8 @@ object {
 .category-selector {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
 
     a.category {
         width: 100%;
