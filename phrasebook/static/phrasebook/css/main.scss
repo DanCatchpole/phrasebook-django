@@ -1875,7 +1875,11 @@ span.num-badge {
 
     .wordBlock {
         width: 100%;
-        span:not(.addnew):not(.padding):not(.language).starred {
+        span:not(.addnew):not(.language).starred {
+            display: none;
+        }
+
+        span.padding {
             display: none;
         }
     }

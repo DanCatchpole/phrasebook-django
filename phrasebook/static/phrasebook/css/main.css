@@ -1761,7 +1761,9 @@ span.num-badge {
 
   .wordBlock {
     width: 100%; }
-    .wordBlock span:not(.addnew):not(.padding):not(.language).starred {
+    .wordBlock span:not(.addnew):not(.language).starred {
+      display: none; }
+    .wordBlock span.padding {
       display: none; }
 
   ul.categoryList {
