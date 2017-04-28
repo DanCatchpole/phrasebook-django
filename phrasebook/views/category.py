@@ -135,7 +135,7 @@ def update_words(request, id):
 
     for word in received_json["updated_words"]:
         w = Word.objects.get(id=word['id'])
-        if w.foreign != word['foreign'] and w.english != word['english']:
+        if w.foreign != word['foreign'] or w.english != word['english']:
             w.foreign = word['foreign']
             w.english = word['english']
             if w.category.user == request.user and w.category.id == int(id):
