@@ -112,18 +112,18 @@
 <nav class="sideBarMOB">
     <ul>
         <li>
-            <a href="{% url 'phrasebook:app' %}" class="icon">
-                <img src="https://dcatcher.me/assets/logo-notext.svg" class="icon" alt="logo">
+            <a href="{% url 'phrasebook:lang_pick' %}" class="icon">
+                <img src="https://dcatcher.me/assets/{{ current_language.flag_name }}.svg" class="icon" alt="logo">
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'phrasebook:app' %}" class="all">
+                <span class="all">Home</span>
             </a>
         </li>
         <li>
             <a href="{% url 'phrasebook:all_categories' %}" class="all {{ all_categories }}">
                 <span class="all">Categories</span>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'phrasebook:lang_pick' %}" class="all">
-                <span class="all">Change Language</span>
             </a>
         </li>
 

@@ -1713,7 +1713,8 @@ span.num-badge {
           text-decoration: none; }
           .sideBarMOB ul li a.icon img.icon {
             max-height: 1.5rem;
-            margin: 0; }
+            margin: 0;
+            border-radius: 50% 50% 50% 0; }
           .sideBarMOB ul li a.icon img.flag {
             max-height: 1rem;
             margin: 0; }
