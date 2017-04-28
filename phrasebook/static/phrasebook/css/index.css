@@ -140,4 +140,14 @@ label.forForm {
     font-weight: 600;
     z-index: 99; }
 
+@media only screen and (max-width: 480px) {
+  div.header {
+    height: 100vh;
+    background-image: url("https://dcatcher.me/assets/colosseum.jpg");
+    background-size: cover;
+    width: 100vw;
+    background-position: center;
+    position: fixed;
+    z-index: -1; } }
+
 /*# sourceMappingURL=index.css.map */
