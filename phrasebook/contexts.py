@@ -31,6 +31,6 @@ def calculate_level_percentage(xp):
     level = math.floor((5 + math.sqrt(25 + 20*xp))/10)
     xp_base = 5*level*level - 5*level
     xp_above  = 5*(level+1)*(level+1) - 5*(level+1)
-    xp_percentage = (xp - xp_base) * 100/xp_above
+    xp_percentage = (xp - xp_base) * 100/(xp_above - xp_base)
     to_next_level = xp_above - xp
     return {'level': level, 'xp_percentage': xp_percentage, 'next_level': to_next_level, 'xp_next': xp_above, 'xp_prev': xp_base}
