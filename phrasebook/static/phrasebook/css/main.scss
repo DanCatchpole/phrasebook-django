@@ -273,7 +273,7 @@ main {
         overflow: auto;
         width: 100%;
         li {
-            a {
+            .link {
                 display: flex;
                 flex-direction: row;
                 color: #eeeeee;
@@ -307,7 +307,7 @@ main {
 
             }
 
-            a.all:not(.active) {
+            .link.all:not(.active) {
                 color: #aaa;
 
                 span.all {
@@ -316,12 +316,12 @@ main {
 
             }
 
-            a.navNew {
+            .link.navNew {
                 color: #666;
                 font-weight: 400;
             }
 
-            a.active {
+            .link.active {
                 background-color: darken($primary, 5%);
                 color: #fff;
                 position: relative;
@@ -334,7 +334,7 @@ main {
                 }
             }
 
-            a:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) {
+            .link:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) {
                 background-color: darken($primary, 10%);
                 color: white;
                 span {
@@ -347,11 +347,11 @@ main {
 
             }
 
-            a.userIcon:hover {
+            .link.userIcon:hover {
                 background-color: darken($primary, 10%);
             }
 
-            a.logo {
+            .link.logo {
                 height: 100%;
                 font-weight: 700;
                 margin: 0;
@@ -367,7 +367,7 @@ main {
                 }
             }
 
-            a.userIcon {
+            .link.userIcon {
                 font-size: 1.3rem;
                 font-weight: 400;
                 align-items: center;
@@ -400,10 +400,13 @@ main {
                 }
             }
 
-            a.xp-bar {
+            .link.xp-bar {
                 position: relative;
+                cursor: default;
                 padding: 0rem 0rem;
                 background-color: darken($barColor, 2%);
+                border-bottom: 1px solid #444;
+
                 div.progress-bar {
                     background-color: $darkBlue;
                     position: absolute;
@@ -419,7 +422,7 @@ main {
 
         }
 
-        li.drop a{
+        li.drop a {
             height: auto;
             padding-top: 1.5rem;
             padding-bottom: 1.5rem;

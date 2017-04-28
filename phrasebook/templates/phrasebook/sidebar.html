@@ -26,7 +26,7 @@
     <div class="user-section">
         <ul class="section">
             <li class="drop">
-                <a href="#" class="userIcon">
+                <a href="#" class="userIcon link">
                     <div class="userSection">
                         <img src="https://dcatcher.me/assets/dcatcher.jpg" alt="user icon" class="icon">
                         <img src="https://dcatcher.me/assets/{{ current_language.flag_name }}.svg" alt="{{ current_language.flag_name }} Flag" class="flag">
@@ -40,7 +40,7 @@
         <ul class="dropdown-elements">
 {#            <li class="hide hidden"><a href="#settings#"><i class="fa fa-fw fa-cog"></i></a></li>#}
             <li class="hide hidden">
-                <a href="{% url 'phrasebook:logout' %}" class="logout">
+                <a href="{% url 'phrasebook:logout' %}" class="link logout">
                     <i class="fa fa-fw fa-sign-out"></i>
                     <span>Logout</span>
                 </a>
@@ -48,9 +48,17 @@
         </ul>
     </div>
     <ul class="main">
+        <li>
+            <span href="" id="xp-bar" class="link xp-bar" title="{{ xp_current_relative }}/{{ next_level_xp }} XP">
+{#                <span class="sticky-push"></span>#}
+{#                <span class="counter">Level {{ level }}</span>#}
+                <div class="progress-bar" style="width: {{ xp_percentage }}%"></div>
+                <span>Level {{ level }}</span>
+            </span>
+        </li>
         <li class="navSubheading">Main</li>
         <li>
-            <a href="{% url 'phrasebook:app' %}" class="all {{ page_app }}">
+            <a href="{% url 'phrasebook:app' %}" class="all link {{ page_app }}">
                 <i class="fa fa-fw fa-home"></i>
                 <span>Overview</span>
             </a>
@@ -63,7 +71,7 @@
         {% for pinned_category in pinned_categories %}
             {% if pinned_category.id == current_category_id %}
                 <li>
-                    <a href="{% url 'phrasebook:get_category' pinned_category.id %}" class="active">
+                    <a href="{% url 'phrasebook:get_category' pinned_category.id %}" class="link active">
                         <i>{{ pinned_category.shortened }}</i>
                         <span>{{ pinned_category.name }}</span>
                         <span class="sticky-push"></span>
@@ -72,7 +80,7 @@
                 </li>
             {% else %}
                 <li>
-                    <a href="{% url 'phrasebook:get_category' pinned_category.id %}" class="">
+                    <a href="{% url 'phrasebook:get_category' pinned_category.id %}" class="link">
                         <i>{{ pinned_category.shortened }}</i>
                         <span>{{ pinned_category.name }}</span>
                         <span class="sticky-push"></span>
@@ -83,13 +91,13 @@
         {% endfor %}
 
         <li>
-            <a href="{% url 'phrasebook:all_categories' %}" class="all {{ all_categories }}">
+            <a href="{% url 'phrasebook:all_categories' %}" class="all link {{ all_categories }}">
                 <i class="fa fa-fw fa-list"></i>
                 <span class="all">All Categories</span>
             </a>
         </li>
         <li>
-            <a href="{% url 'phrasebook:new_category' %}" class="addNewCategory {{ new_category }}">
+            <a href="{% url 'phrasebook:new_category' %}" class="addNewCategory link {{ new_category }}">
                 <i class="fa fa-fw fa-plus"></i>
                 <span>New Category</span>
             </a>
@@ -101,18 +109,13 @@
     <ul class="languages">
         <li class="navSubheading">Language</li>
         <li>
-            <a href="#" id="language-change-link" class="currentlanguage">
+            <a href="#" id="language-change-link" class="currentlanguage link">
                 <img src="https://dcatcher.me/assets/{{ current_language.flag_name }}.svg" alt="{{ current_language.flag_name }} flag" class="languageIcon">
                 <span>Change Language</span>
             </a>
         </li>
-        <li class="navSubheading">Progress</li>
-        <li>
-            <a href="#" id="xp-bar" class="xp-bar" title="{{ xp_current_relative }}/{{ next_level_xp }} XP">
-                <div class="progress-bar" style="width: {{ xp_percentage }}%"></div>
-                <span>Level {{ level }}</span>
-            </a>
-        </li>
+{#        <li class="navSubheading">Progress</li>#}
+
 
     </ul>
 </nav>
@@ -120,17 +123,17 @@
 <nav class="sideBarMOB">
     <ul>
         <li>
-            <a href="{% url 'phrasebook:lang_pick' %}" class="icon">
+            <a href="{% url 'phrasebook:lang_pick' %}" class="icon link">
                 <img src="https://dcatcher.me/assets/{{ current_language.flag_name }}.svg" class="icon" alt="logo">
             </a>
         </li>
         <li>
-            <a href="{% url 'phrasebook:app' %}" class="all">
+            <a href="{% url 'phrasebook:app' %}" class="all link">
                 <span class="all">Home</span>
             </a>
         </li>
         <li>
-            <a href="{% url 'phrasebook:all_categories' %}" class="all {{ all_categories }}">
+            <a href="{% url 'phrasebook:all_categories' %}" class="all {{ all_categories }} link">
                 <span class="all">Categories</span>
             </a>
         </li>
@@ -139,7 +142,7 @@
     <div class="sticky-push"></div>
     <ul>
         <li>
-            <a href="{% url 'phrasebook:logout' %}" class="logout icon">
+            <a href="{% url 'phrasebook:logout' %}" class="logout icon link">
                 <i class="fa fa-fw fa-sign-out"></i>
             </a>
         </li>

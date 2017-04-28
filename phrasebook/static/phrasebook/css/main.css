@@ -593,7 +593,7 @@ main.noSidebar {
     padding: 0;
     overflow: auto;
     width: 100%; }
-    .sidebar ul li a {
+    .sidebar ul li .link {
       display: flex;
       flex-direction: row;
       color: #eeeeee;
@@ -603,58 +603,58 @@ main.noSidebar {
       font-weight: 500;
       transition: 0.2s background-color;
       align-items: center; }
-      .sidebar ul li a i {
+      .sidebar ul li .link i {
         line-height: 1rem;
         padding-right: 0.5rem;
         font-style: normal;
         font-weight: 800; }
-      .sidebar ul li a span.counter {
+      .sidebar ul li .link span.counter {
         border-radius: 1rem;
         background-color: white;
         padding: 0.2rem 0.8rem;
         color: #1b1b1b;
         font-size: 0.75rem;
         font-weight: 700; }
-      .sidebar ul li a span {
+      .sidebar ul li .link span {
         color: #eeeeee;
         padding-left: 0.25rem; }
-    .sidebar ul li a.all:not(.active) {
+    .sidebar ul li .link.all:not(.active) {
       color: #aaa; }
-      .sidebar ul li a.all:not(.active) span.all {
+      .sidebar ul li .link.all:not(.active) span.all {
         color: #aaa; }
-    .sidebar ul li a.navNew {
+    .sidebar ul li .link.navNew {
       color: #666;
       font-weight: 400; }
-    .sidebar ul li a.active {
+    .sidebar ul li .link.active {
       background-color: #be4b2c;
       color: #fff;
       position: relative;
       z-index: 101; }
-      .sidebar ul li a.active span {
+      .sidebar ul li .link.active span {
         color: #fff; }
-      .sidebar ul li a.active span.counter {
+      .sidebar ul li .link.active span.counter {
         color: #aa4327; }
-    .sidebar ul li a:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) {
+    .sidebar ul li .link:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) {
       background-color: #aa4327;
       color: white; }
-      .sidebar ul li a:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) span {
+      .sidebar ul li .link:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) span {
         color: #fff; }
-      .sidebar ul li a:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) span.counter {
+      .sidebar ul li .link:hover:not(.active):not(.logo):not(.userIcon):not(.xp-bar) span.counter {
         color: #aa4327; }
-    .sidebar ul li a.userIcon:hover {
+    .sidebar ul li .link.userIcon:hover {
       background-color: #aa4327; }
-    .sidebar ul li a.logo {
+    .sidebar ul li .link.logo {
       height: 100%;
       font-weight: 700;
       margin: 0;
       display: flex; }
-      .sidebar ul li a.logo img {
+      .sidebar ul li .link.logo img {
         width: 1.5rem;
         max-height: 1.5rem;
         display: inline-block; }
-      .sidebar ul li a.logo span.label {
+      .sidebar ul li .link.logo span.label {
         padding-left: 0.5rem; }
-    .sidebar ul li a.userIcon {
+    .sidebar ul li .link.userIcon {
       font-size: 1.3rem;
       font-weight: 400;
       align-items: center;
@@ -666,15 +666,15 @@ main.noSidebar {
       align-items: center;
       align-content: center;
       align-self: center; }
-      .sidebar ul li a.userIcon .userSection {
+      .sidebar ul li .link.userIcon .userSection {
         margin-right: 1rem;
         height: 100%; }
-        .sidebar ul li a.userIcon .userSection img.icon {
+        .sidebar ul li .link.userIcon .userSection img.icon {
           width: 3rem;
           max-height: 3rem;
           display: inline-block;
           border-radius: 50%; }
-        .sidebar ul li a.userIcon .userSection img.flag {
+        .sidebar ul li .link.userIcon .userSection img.flag {
           position: relative;
           width: 1.5rem;
           max-height: 1.5rem;
@@ -682,15 +682,17 @@ main.noSidebar {
           top: 3px;
           margin-right: -10px;
           border-radius: 50% 50% 50% 0; }
-    .sidebar ul li a.xp-bar {
+    .sidebar ul li .link.xp-bar {
       position: relative;
+      cursor: default;
       padding: 0rem 0rem;
-      background-color: #161616; }
-      .sidebar ul li a.xp-bar div.progress-bar {
+      background-color: #161616;
+      border-bottom: 1px solid #444; }
+      .sidebar ul li .link.xp-bar div.progress-bar {
         background-color: #188bee;
         position: absolute;
         height: 100%; }
-      .sidebar ul li a.xp-bar span {
+      .sidebar ul li .link.xp-bar span {
         padding: 0.5rem 1.5rem;
         z-index: 2; }
     .sidebar ul li.drop a {
