@@ -17,22 +17,22 @@
     </nav>
     <div class="header"></div>
     <header><a href="{% url 'phrasebook:login' %}" class="mainButton">Get Started</a></header>
-    <main style="height: 200vh"></main>
+{#    <main style="height: 200vh"></main>#}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
-    <script type="text/javascript">
-      console.log($(".nav").outerHeight());
-      var header = $('header').height() - $(".nav").outerHeight() ;
-      $(window).on('scroll', function() {
-          var cur = $(window).scrollTop();
-          if (cur > header) {
-              $(".nav").addClass("beyond");
-              $(".logo").attr("src", "https://dcatcher.me/assets/logo-notext.svg");
-          } else {
-              $(".nav").removeClass("beyond");
-              $(".logo").attr("src", "https://dcatcher.me/assets/logo-notext-white.svg");
-          }
-      });
-    </script>
+{#    <script type="text/javascript">#}
+{#      console.log($(".nav").outerHeight());#}
+{#      var header = $('header').height() - $(".nav").outerHeight() ;#}
+{#      $(window).on('scroll', function() {#}
+{#          var cur = $(window).scrollTop();#}
+{#          if (cur > header) {#}
+{#              $(".nav").addClass("beyond");#}
+{#              $(".logo").attr("src", "https://dcatcher.me/assets/logo-notext.svg");#}
+{#          } else {#}
+{#              $(".nav").removeClass("beyond");#}
+{#              $(".logo").attr("src", "https://dcatcher.me/assets/logo-notext-white.svg");#}
+{#          }#}
+{#      });#}
+{#    </script>#}
   </body>
 </html>
