@@ -46,6 +46,15 @@ class UserLanguage(models.Model):
         return self.user.username + " - " + self.language.flag_name
 
 
+class UserProgress(models.Model):
+    user = models.ForeignKey(auth_modules.User, on_delete=models.CASCADE)
+    level = models.IntegerField()
+    xp = models.BigIntegerField()
+
+    def __str__(self):
+        return self.user.username + " - level " + str(self.level) + ", Total XP: " + str(self.xp)
+
+
 class UserIcon(models.Model):
     user = models.ForeignKey(auth_modules.User, on_delete=models.CASCADE)
     icon = models.URLField()
