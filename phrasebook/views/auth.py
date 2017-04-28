@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login as auth_login, models as aut
 from django.shortcuts import render, redirect
 
 from ..sessiontools import update_session
-from ..models import UserLanguage
+from ..models import UserLanguage, UserProgress
 
 
 # LOGIN STUFF
@@ -26,8 +26,12 @@ def login_post(request):
     else:
         auth_login(request, user)
         langs = UserLanguage.objects.filter(user=request.user).order_by("language__english_name")
+        progress = UserProgress.objects.filter(user=request.user)
         if langs.__len__() > 0:
             request.session.__setitem__('current_language', langs.first().language.flag_name)
+        if progress.__len__() < 1:
+            prog = UserProgress(user=request.user, level=1, xp=0)
+            prog.save()
         update_session(request)
         return redirect('phrasebook:app')
 
