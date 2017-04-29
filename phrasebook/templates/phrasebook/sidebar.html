@@ -40,6 +40,12 @@
         <ul class="dropdown-elements">
 {#            <li class="hide hidden"><a href="#settings#"><i class="fa fa-fw fa-cog"></i></a></li>#}
             <li class="hide hidden">
+                <a href="{% url 'phrasebook:profile' %}" class="link">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="hide hidden">
                 <a href="{% url 'phrasebook:logout' %}" class="link logout">
                     <i class="fa fa-fw fa-sign-out"></i>
                     <span>Logout</span>

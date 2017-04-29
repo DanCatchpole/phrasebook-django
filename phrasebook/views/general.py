@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.utils.decorators import decorator_from_middleware
 
@@ -33,3 +34,11 @@ def first_login(request):
 @login_required()
 def lang_pick(request):
     return render(request, 'phrasebook/changelanguage.html', context=get_sidebar_args(request, {}))
+
+
+@login_required()
+def profile(request):
+    ctx = get_sidebar_args(request, {})
+    ctx.update({'extra_langs': ctx['languages_len'] - 5, 'last_name': request.user.last_name})
+
+    return render(request, 'phrasebook/profile.html', context=ctx)

@@ -33,6 +33,7 @@
                     <a href="{% url 'phrasebook:pin_category' category.id %}" class="button black" title="Pin"><i class="fa fa-fw fa-thumb-tack fa-rotate-45"></i>Pin</a>
                 {% endif %}
                 <a href="{% url 'phrasebook:category_notes' category.id %}" class="button black" title="Notes"><i class="fa fa-fw fa-sticky-note-o"></i> Notes</a>
+                <a href="#" class="button black" id="sharing" title="Sharing"><i class="fa fa-fw fa-share-alt"></i> Share</a>
             </div>
             <div class="sticky-push"></div>
             <form onkeypress="return event.keyCode !== 13;" class="searchBox">
@@ -42,8 +43,12 @@
                 <input type="text" placeholder="Search" id="search" class="search">
             </form>
         </div>
-        <div class="content category" tabindex="1">
+        <div class="sharing-container">
+            <div class="sharing-panel">
 
+            </div>
+        </div>
+        <div class="content category" tabindex="1">
             {% if words.len > 0 %}
             <div class="wordBlock wbtitle">
                 <span class="lang"><h1>{{ category.language.english_name }}</h1></span>
@@ -92,5 +97,18 @@
     <script src="{% static 'phrasebook/js/starred.js' %}"></script>
     <script src="{% static 'phrasebook/js/search.js' %}"></script>
     <script src="{% static 'phrasebook/js/changecategory.js' %}"></script>
+
+    <script>
+        $("body").ready(function() {
+            $("#sharing").click(function() {
+                $share = $(".sharing-container");
+                if ($share.hasClass("shown")) {
+                    $share.removeClass("shown").slideUp();
+                } else {
+                    $share.addClass("shown").slideDown();
+                }
+            })
+        });
+    </script>
   </body>
 </html>

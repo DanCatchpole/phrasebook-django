@@ -16,6 +16,7 @@ def get_sidebar_args(request, extras):
            'first_name': request.user.first_name,
            'current_language': lang,
            'languages': langs, "languages_len": langs.__len__(),
+           'five_languages': langs[:5],
            'username': request.user.username,
            'pinned_categories': cats,
            'level': lvl_details['level'],

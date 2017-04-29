@@ -1150,7 +1150,6 @@ form.appForm {
   height: 5.5rem;
   padding: 0 2rem 0 1rem;
   border-bottom: 1px solid #d1d1d1;
-  justify-content: space-between;
   display: flex;
   align-items: center;
   align-content: center;
@@ -1576,6 +1575,58 @@ span.num-badge {
 /* back, initially hidden pane */
 .flashcard-side.english {
   transform: rotateY(180deg); }
+
+.profile-picture {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem;
+  border-radius: 50%;
+  background-color: #188bee;
+  width: 9rem;
+  height: 9rem;
+  box-shadow: 2px 2px 4px -2px rgba(0, 0, 0, 0.5); }
+  .profile-picture img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    margin: 0; }
+
+.content.profile {
+  display: flex;
+  flex-direction: column; }
+  .content.profile .learning-languages {
+    display: flex;
+    flex-direction: column; }
+
+.language-list {
+  display: flex;
+  padding: 1rem;
+  width: 50%;
+  overflow-x: hidden; }
+  .language-list .language {
+    border-radius: 50% 50% 50% 0;
+    height: 3rem;
+    width: 3rem;
+    margin: 0.5rem;
+    background-color: #999;
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center; }
+
+.sharing-container {
+  width: 100%;
+  height: 8rem;
+  background-color: #fff;
+  flex-shrink: 0;
+  border-bottom: 1px solid #d1d1d1;
+  display: none; }
+  .sharing-container .sharing-panel {
+    display: flex;
+    width: 100%;
+    height: 100%; }
 
 @media only screen and (max-width: 480px) {
   main {

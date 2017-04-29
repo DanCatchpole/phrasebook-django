@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^register/$', auth.register, name="register"),
     url(r'^first_login/$', general.first_login, name="first_login"),
     url(r'^app/$', general.app, name="app"),
+    url(r'^profile/$', general.profile, name="profile"),
 
     url(r'^language/register/$', language.register_user_language, name="register_user_language"),
     url(r'^language/change/$', general.lang_pick, name="lang_pick"),
