@@ -20,11 +20,14 @@ urlpatterns = [
     url(r'^language/change/(?P<flag_name>[a-z]+)/$', language.change_language, name="change_language"),
     url(r'^category/(?P<id>[0-9]+)/$', category.get_category, name="get_category"),
     url(r'^category/(?P<id>[0-9]+)/update/$', category.update_words, name="update_words"),
+    url(r'^category/(?P<id>[0-9]+)/getlink/$', category.share_link, name="share_link"),
     url(r'^category/(?P<id>[0-9]+)/notes/$', category.category_notes, name="category_notes"),
     url(r'^category/(?P<id>[0-9]+)/notes/update/$', category.update_notes, name="update_notes"),
     url(r'^category/all/$', category.all_categories, name="all_categories"),
     url(r'^category/new/$', category.new_category, name="new_category"),
     url(r'^category/pin/(?P<id>[0-9]+)/$', category.pin_category, name="pin_category"),
+
+    url(r'^c/(?P<id>[0-9A-Za-z]+)/$', category.shared_category, name="shared_category"),
 
 
     url(r'^word/new/(?P<cid>[0-9]+)/$', word.new_word, name="new_word"),

@@ -1679,7 +1679,7 @@ span.num-badge {
 
 .sharing-container {
     width: 100%;
-    height: 8rem;
+    //height: 8rem;
     background-color: #fff;
     flex-shrink:0;
     border-bottom: 1px solid $bordercolor;
@@ -1687,8 +1687,27 @@ span.num-badge {
 
     .sharing-panel {
         display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100%;
+
+        padding: 1rem;
+
+        .share {
+            display: flex;
+            //height: 6rem;
+            .shareable-link {
+                width: 40%;
+                padding: 0.25rem 0.5rem;
+                font-size: 1.25rem;
+                margin-right: 1rem;
+            }
+
+            .button {
+                //width: 20%;
+            }
+        }
+
     }
 }
 

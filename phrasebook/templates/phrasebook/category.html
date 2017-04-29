@@ -45,11 +45,19 @@
         </div>
         <div class="sharing-container">
             <div class="sharing-panel">
-
+                <span class="h6">Shareable link:</span>
+                <div class="share">
+                    {% if category.share_url %}
+                        <input type="text" class="shareable-link" value="https://dcatcher.me/phrasebook/c/{{ category.share_url }}/">
+                    {% else %}
+                        <input type="text" class="shareable-link" value="">
+                    {% endif %}
+                    <a class="button bg--deepRed white" href="#" id="generate-share-link"> Generate link </a>
+                </div>
             </div>
         </div>
         <div class="content category" tabindex="1">
-            {% if words.len > 0 %}
+            {% if category__len > 0 %}
             <div class="wordBlock wbtitle">
                 <span class="lang"><h1>{{ category.language.english_name }}</h1></span>
                 <span class="padding"></span>
@@ -99,7 +107,7 @@
     <script src="{% static 'phrasebook/js/changecategory.js' %}"></script>
 
     <script>
-        $("body").ready(function() {
+        $(document).ready(function() {
             $("#sharing").click(function() {
                 $share = $(".sharing-container");
                 if ($share.hasClass("shown")) {
@@ -107,7 +115,13 @@
                 } else {
                     $share.addClass("shown").slideDown();
                 }
-            })
+            });
+
+            $("#generate-share-link").click(function() {
+                $.post('./getlink/', {}, function(d) {
+                    $(".shareable-link").val("https://dcatcher.me/phrasebook/c/" + d + "/");
+                });
+            });
         });
     </script>
   </body>

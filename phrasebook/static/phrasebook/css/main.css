@@ -1618,15 +1618,23 @@ span.num-badge {
 
 .sharing-container {
   width: 100%;
-  height: 8rem;
   background-color: #fff;
   flex-shrink: 0;
   border-bottom: 1px solid #d1d1d1;
   display: none; }
   .sharing-container .sharing-panel {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    padding: 1rem; }
+    .sharing-container .sharing-panel .share {
+      display: flex; }
+      .sharing-container .sharing-panel .share .shareable-link {
+        width: 40%;
+        padding: 0.25rem 0.5rem;
+        font-size: 1.25rem;
+        margin-right: 1rem; }
 
 @media only screen and (max-width: 480px) {
   main {

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Phrasebook - {{ category.name }}</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="https://dcatcher.me/assets/favicon.png">
+  </head>
+
+  <body>
+  {% if logged_in %}
+      {% include "phrasebook/sidebar.html" %}
+  {% endif %}
+{#    <input type="hidden" value="{{ category.id }}" id="category_id">#}
+    <main>
+{#    {% csrf_token %}#}
+        <div class="topBar">
+            <div class="top">
+                <span class="mainTitle">
+                    <span>Oops!</span>
+                    <span class="subtext">This doesn't seem to be a category!</span>
+                </span>
+            </div>
+        </div>
+        <div class="content category">
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
+  </body>
+</html>

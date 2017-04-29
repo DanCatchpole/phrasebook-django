@@ -1,4 +1,6 @@
 import json
+import random
+import string
 
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import FieldDoesNotExist, ObjectDoesNotExist
@@ -152,6 +154,38 @@ def update_words(request, id):
         w = Word(foreign=word['foreign'], english=word['english'], category_id=id)
         w.save()
     return JsonResponse({"status": "success"})
+
+
+@login_required()
+def share_link(request, id):
+    rand_string = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(10))
+    while Category.objects.filter(share_url=rand_string).count() > 0:
+        rand_string = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(10))
+    cat = Category.objects.get(id=id)
+    if cat.user == request.user:
+        cat.share_url = rand_string
+        cat.save()
+        return HttpResponse(rand_string)
+    else:
+        return redirect('phrasebook:app')
+
+
+def shared_category(request, id):
+    try:
+        cat = Category.objects.get(share_url=id)
+        words = list(Word.objects.filter(category_id=cat.id))
+        if not request.user.is_authenticated():
+            return render(request, "phrasebook/shared-category.html", context={"logged_in": False, "category": cat, "words": words, "category__len": words.__len__()})
+        else:
+            if cat.user == request.user:
+                return redirect("phrasebook:get_category", cat.id)
+            else:
+                return render(request, "phrasebook/shared-category.html", context=get_sidebar_args(request, {"logged_in": True, "category": cat}))
+    except ObjectDoesNotExist:
+        if request.user.is_authenticated():
+            return render(request, "phrasebook/category-not-exist.html", context=get_sidebar_args(request, {"logged_in": True}))
+        else:
+            return render(request, "phrasebook/category-not-exist.html", context={"logged_in": False})
 
 
 def render_dcmarkup(markup):

@@ -22,7 +22,7 @@ class Category(models.Model):
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     user = models.ForeignKey(auth_modules.User, on_delete=models.CASCADE)
     pinned = models.BooleanField(default=False)
-    share_url = models.CharField(max_length=100, default="")
+    share_url = models.CharField(max_length=100, default="", unique=True)
 
     def __str__(self):
         return self.name + " (" + self.language.flag_name + ")"
