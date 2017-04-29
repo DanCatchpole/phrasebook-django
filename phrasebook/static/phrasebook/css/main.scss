@@ -155,6 +155,10 @@ main.noSidebar {
 //    z-index: 1000;
 //}
 
+.topBar {
+    flex-shrink: 0;
+}
+
 .sidebar-new {
   justify-content: space-between;
   max-width: 20rem;
