@@ -40,7 +40,6 @@ def star_word(request):
     elif request.method == "POST":
         category_id = request.POST.get('categoryID')
         word_id = request.POST.get('wordID')
-        print(word_id + ", " + category_id)
         if word_id is not "" and category_id is not "":
             try:
                 word = Word.objects.get(id=word_id)
@@ -57,12 +56,19 @@ def star_word(request):
 
 
 @login_required()
+def all(request):
+    ctx = get_sidebar_args(request, {})
+    words = list(Word.objects.filter(category__user=request.user, category__language=ctx['current_language']))
+    ctx.update({'words': words, 'words__len': words.__len__(), "all_words": "active"})
+    return render(request, 'phrasebook/all-words.html', context=ctx)
+
+
+@login_required()
 def search_word(request):
     if request.method == "GET":
         return redirect("phrasebook:app")
     elif request.method == "POST":
         contains = request.POST.get('search')
-        print(contains)
         category_id = request.POST.get('category')
         flag_name = request.POST.get('short')
         if category_id is None:

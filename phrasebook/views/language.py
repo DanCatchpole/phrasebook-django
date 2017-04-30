@@ -23,6 +23,7 @@ def register_user_language(request):
     update_session(request)
     return JsonResponse({"success": language.english_name + " saved successfully"})
 
+
 @login_required()
 def change_language(request, flag_name):
     try:

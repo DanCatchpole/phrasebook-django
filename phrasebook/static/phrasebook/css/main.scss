@@ -1078,6 +1078,8 @@ form.appForm {
     align-content: center;
     align-items: center;
     line-height: 2.25rem;
+    width: 100%;
+
     i:not(.fa) {
         padding-right: 1rem;
         font-style: normal;
@@ -1094,6 +1096,7 @@ form.appForm {
         color: rgb(105, 105, 105);
         margin-top: 0.5rem;
         font-size: 1.5rem;
+        display: flex;
     }
 
     img.logo {

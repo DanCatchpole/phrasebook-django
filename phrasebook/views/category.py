@@ -128,12 +128,7 @@ def update_notes(request, id):
 
 @login_required()
 def update_words(request, id):
-    rec = request.body.decode("utf-8")
-    # print(rec)
     received_json = json.loads(request.body.decode("utf-8"))
-    # print(received_json)
-    # print(received_json["removed_words"])
-    # print(received_json["updated_words"])
 
     for word in received_json["updated_words"]:
         w = Word.objects.get(id=word['id'])

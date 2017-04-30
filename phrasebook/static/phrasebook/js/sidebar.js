@@ -1,4 +1,17 @@
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
 $(document).ready(function() {
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
     $(".shrink").click(function() {
         if($('.sidebar').hasClass("small")) {
             $('.sidebar').animate({"width": 20*16 + ""}, 300, "swing");

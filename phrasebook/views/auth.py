@@ -46,7 +46,6 @@ def register(request):
 
 
 def register_post(request):
-    # print(request.POST)
     username = request.POST.get('username')
     password = request.POST.get('password')
     passwordC = request.POST.get('confirmpassword')

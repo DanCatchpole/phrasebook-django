@@ -23,15 +23,18 @@
                     <span>{{ category.name }}</span>
                     <span class="padding"></span>
                     <span class="num-badge">{{ category__len }}</span>
+                    <span class="sticky-push"></span>
+                    <span class="subtext">Hey! You don't seem to be logged in? </span><a href="{% url 'phrasebook:login' %}" class="button bg--deepOrange white margin--left">Login</a>
                 </span>
             </div>
         </div>
+
         <div class="content category">
             {% if category__len > 0 %}
             <div class="wordBlock wbtitle">
-                <span class="lang"><h1>{{ category.language.english_name }}</h1></span>
+                <h1 class="lang">{{ category.language.english_name }}</h1>
                 <span class="padding"></span>
-                <span class="english"><h1>English</h1></span>
+                <h1 class="english">English</h1>
                 <span class="padding"></span>
             </div>
             {% endif %}

@@ -348,9 +348,14 @@ ul.glass-breadcrumb {
 .button {
   text-decoration: none;
   border: 0;
-  padding: 0.5rem 1rem; }
+  padding: 0.25rem 1rem;
+  font-size: 1rem;
+  height: auto; }
   .button i {
     margin-right: 0.5rem; }
+
+.margin--left {
+  margin-left: 1rem; }
 
 .button--large {
   border-radius: 1rem;
@@ -1189,7 +1194,8 @@ form.appForm {
   flex-direction: row;
   align-content: center;
   align-items: center;
-  line-height: 2.25rem; }
+  line-height: 2.25rem;
+  width: 100%; }
   .mainTitle i:not(.fa) {
     padding-right: 1rem;
     font-style: normal;
@@ -1201,7 +1207,8 @@ form.appForm {
   .mainTitle span.subtext {
     color: dimgray;
     margin-top: 0.5rem;
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    display: flex; }
   .mainTitle img.logo {
     height: 3rem;
     padding-right: 1rem; }
