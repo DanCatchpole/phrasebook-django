@@ -1,4 +1,6 @@
 # Phrasebook
+<img src="https://dcatcher.me/assets/logo-col.svg" width="100px">
+
 
 [Phrasebook](https://dcatcher.me/phrasebook/) is a WIP Web Application that can assist users in learning a language. I created this when I started learning French, in order to have a neat, centralised place which I could store my vocabulary. It also allowed me to learn new approaches for implementing the backend of the system, instead of the typical PHP based applications I had learnt previously on my own and within university modules. There were no specific target users, but it can be used by anyone that wants to store vocabulary they learn during any kind of language study.
 
