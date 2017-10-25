@@ -9,6 +9,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.utils.decorators import decorator_from_middleware
 
+from phrasebook import utils
 from phrasebook.contexts import get_sidebar_args
 from phrasebook.middleware import FirstLoginMiddleware
 from phrasebook.models import Category, Word, Language
@@ -148,6 +149,7 @@ def update_words(request, id):
     for word in received_json['new_words']:
         w = Word(foreign=word['foreign'], english=word['english'], category_id=id)
         w.save()
+    utils.addXP(request.user, received_json['new_words'].__len__())
     return JsonResponse({"status": "success"})
 
 

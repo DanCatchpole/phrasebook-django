@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login as auth_login, models as auth_models, logout as auth_logout
 from django.shortcuts import render, redirect
 
-from ..sessiontools import update_session
+from ..utils import update_session
 from ..models import UserLanguage, UserProgress
 
 

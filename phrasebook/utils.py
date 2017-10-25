@@ -15,3 +15,10 @@ def update_session(request):
     langs = [lang.language.flag_name for lang in userlangs]
     print(langs)
     request.session.__setitem__('user_languages', langs)
+
+
+def addXP(user, amount):
+    up = UserProgress.objects.get(user=user)
+    up.xp += amount
+    up.save()
+

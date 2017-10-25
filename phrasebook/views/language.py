@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect
 
 from phrasebook.models import Language, UserLanguage
-from ..sessiontools import update_session
+from ..utils import update_session
 
 
 @login_required()
