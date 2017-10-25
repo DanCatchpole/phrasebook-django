@@ -1,2 +1,2 @@
 phrasebook/static/* linguist-vendored
-phrasebook/templates/* linguist-vendored
+*.html linguist-vendored
