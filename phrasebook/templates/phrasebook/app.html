@@ -10,63 +10,11 @@
     <link rel="manifest" href="https://dcatcher.me/app/manifest.json">
   </head>
   <body>
-    {% include "phrasebook/sidebar.html" %}
     <main>
-        <div class="topBar">
-            <div class="top">
-                <span class="mainTitle">
-                    <i class="fa fa-fw fa-home"></i>
-                    <span>{{ current_language.hello }}!</span>
-                    <span class="subtext">Welcome back {{ first_name }}.</span>
-                </span>
-            </div>
-        </div>
-        <div class="content">
-            {% if words__len > 0 %}
-                <h2>Here's the last 10 words you added:</h2>
-                <div class="allWords">
-                    {% for word in words %}
-                        <div class="wordBlock">
-                            <span class="lang">{{ word.foreign }}</span>
-                            <span class="padding"></span>
-                            <span class="english">{{ word.english }}</span>
-                            <span class="padding"></span>
-                            <span class="language">
-                                <img src="https://dcatcher.me/assets/{{ word.category.language.flag_name }}.svg" alt="language" class="languageIcon">
-                                <span>{{ word.category.language.english_name }}</span>
-                            </span>
-                        </div>
-                    {% endfor %}
-                </div>
-           {% else %}
-                <h2>You haven't added any words yet! Why not add some to a category on the left!</h2>
-                <img src="https://dcatcher.me/assets/sidebar-arrow.svg" alt="Arrow to sidebar" class="sidebar-arrow">
-           {% endif %}
-        </div>
+
     </main>
+    <script src="{% static "phrasebook/js/prod/bundle.js" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
-    <script src="{% static 'phrasebook/js/languagePicker.js' %}"></script>
-    <script src="{% static 'phrasebook/js/sidebar.js' %}"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function() {
-            navigator.serviceWorker.register('{% static 'phrasebook/js/sw.js' %}').then(function(registration) {
-              // Registration was successful
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-              // registration failed :(
-              console.log('ServiceWorker registration failed: ', err);
-            });
-          });
-}
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("body").on('click', '.flashcard-container', function(e) {
-                $(this).toggleClass('flip');
-            })
-        });
-    </script>
   </body>
 </html>
