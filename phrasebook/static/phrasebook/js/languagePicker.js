@@ -2,12 +2,17 @@
 
 $(document).ready(function() {
     $(".language-block").click(function(event) {
-        $(".language-selected").removeClass("language-selected");
-        $(this).addClass("language-selected");
-        var $submit = $("<input>", {type: "submit", value:"Save", class: "button button-save"});
-        $(".button-save").remove();
-        $(".submit-section").append($submit);
-        console.log($(".hidden", this).html());
-        $(".langVal").val($(".hidden", this).html());
+        if ($(this).hasClass("language-selected")) {
+            // is the selected one
+            $(this).removeClass("language-selected");
+            $(".button-save").prop('disabled', true);
+            $(".langVal").val("");
+        } else {
+            // not the selected one
+            $(".language-selected").removeClass("language-selected");
+            $(this).addClass("language-selected");
+            $(".button-save").prop('disabled', false);
+            $(".langVal").val($(".hidden", this).html());
+        }
     });
 });

@@ -1,4 +1,17 @@
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
 $(document).ready(function() {
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
     $(".shrink").click(function() {
         if($('.sidebar').hasClass("small")) {
             $('.sidebar').animate({"width": 20*16 + ""}, 300, "swing");
@@ -27,7 +40,8 @@ $(document).ready(function() {
     });
 
     $(".userSection .flag").click(function(event) {
-        alert("TEST");
+        $("div.language-picker").css({'display': "flex"});
+        $("div.language-picker").animate({"opacity": 1});
         event.stopPropagation();
     });
 
@@ -35,12 +49,34 @@ $(document).ready(function() {
         $("div.language-picker").css({'display': "flex"});
         $("div.language-picker").animate({"opacity": 1});
     });
+    $("body").on('click', '.language-picker div.container', function(event) {
+        event.stopPropagation();
+    });
 
-    $(".language-picker").click(function(event) {
+
+    $("body").on('click', '.language-picker', function(event) {
         $("div.language-picker").animate({"opacity": 0}, function() {
             $("div.language-picker").css({'display': "none"});
 
         });
     })
+
+    $(".drop").click(function() {
+        if (!$(".sidebar").hasClass("small")) {
+            $(".rot").toggleClass("rotate90", "0.2s");
+            //$(".dropdown-icon").toggleClass("fa-angle-right");
+            $(this).parent().parent().find(".dropdown-elements > li").each(function() {
+                if ($(this).hasClass("hidden")) {
+                    $(this).slideDown();
+                } else {
+                    $(this).slideUp();
+                }
+                $(this).toggleClass("hidden");
+                $(this).toggleClass("shown");
+            });
+        }
+    });
+
+
 
 });

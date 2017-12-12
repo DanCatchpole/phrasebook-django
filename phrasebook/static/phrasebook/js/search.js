@@ -1,4 +1,5 @@
 var constantsURL = $("#constantsURL").text();
+
 function escapeHtml(text) {
   return text
       .replace(/&/g, "&amp;")
@@ -9,62 +10,28 @@ function escapeHtml(text) {
 }
 
 $(function(){
+    const nosearch = $(".allWords").html();
+
     $('#search').on('keyup', function(e){
-        if ($(".editing").length == 0) {
-            if ($("#category")) {
-                var parameters = { search: $(this).val(), username: $("#username").val(), category: $("#category").val(), short: $("#shortenedLanguage").val()};
-            } else {
-                var parameters = { search: $(this).val(), username: $("#username").val(), short: $("#shortenedLanguage").val()};
-            }
-            $.post( constantsURL + '/words/search', parameters, function(data) {
-                $(".allWords").html("");
-                if (data.length == 0) {
-                    $(".allWords").html(`<div style='padding: 1rem; color:#d12929; font-weight: 600;' class='wordBlock'> No words match this query: ${escapeHtml(parameters.search)} </div>`);
+        if ($("#search").val() === "") {
+            $(".allWords").html(nosearch);
+        } else {
+            if ($(".editing").length === 0) {
+                let parameters;
+                if ($("#category")) {
+                    parameters = { search: $(this).val(), category: $("#category").val(), short: $("#shortenedLanguage").val()};
+                } else {
+                    parameters = { search: $(this).val(), short: $("#shortenedLanguage").val()};
                 }
-                for (elem of data) {
-                    var $wordBlock = $("<div>", {class: "wordBlock"});
-                    var $lang = $("<span>", {class: "lang"});
-                    $lang.html(elem.word);
-
-                    var $padding1 = $("<span>", {class: "padding"});
-
-                    var $translations = $("<span>", {class: "english"});
-                    $translations.text(elem.translations);
-
-
-                    $wordBlock.append($lang);
-                    $wordBlock.append($padding1);
-                    $wordBlock.append($translations);
-                    if ($("#categoryRequired").text() == "Category") {
-                        var $padding2 = $("<span>", {class: "padding"});
-                        var $category = $("<span>", {class: "category"});
-                        $category.text(elem.catName);
-
-
-                        $wordBlock.append($padding2);
-                        $wordBlock.append($category);
+                $.post( constantsURL + '/phrasebook/word/search/', parameters, function(data) {
+                    $(".allWords").html("");
+                    if (data.length === 0) {
+                        $(".allWords").html();
                     } else {
-                        var $padding3 = $("<span>", {class: "padding"});
-                        $wordBlock.append($padding3);
-
-                        var $star = $("<span>", {class: "starred"});
-                        if (elem.starred) {
-                            $star.append($("<i>", {class: "fa fa-fw fa-star star-on"}))
-                        } else {
-                            $star.append($("<i>", {class: "fa fa-fw fa-star star-off"}))
-                        }
-                        $wordBlock.append($star);
-
-                        var $edit = $("<span>", {class: "edit"});
-                        $edit.append($("<i>", {class: "fa fa-fw fa-pencil"}))
-                        $wordBlock.append($edit);
-
+                        $(".allWords").html(data);
                     }
-
-                    $(".allWords").append($wordBlock);
-                }
-                comma();
-            });
+                });
+            }
         }
     });
 });

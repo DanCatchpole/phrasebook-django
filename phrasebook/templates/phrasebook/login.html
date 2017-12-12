@@ -16,14 +16,20 @@
     <div class="loginBlock">
         <div class="formTitle">
             <div class="logo">
-                <object data="https://dcatcher.me/assets/logo-col.svg"></object>
+                <object data="https://dcatcher.me/assets/pb-verttext.svg"></object>
             </div>
         </div>
-        <form method="post" action="." class="glass-form login-form">{% csrf_token %}
+        <form method="post" action="{% url "phrasebook:login" %}" class="glass-form login-form">{% csrf_token %}
             {% if error != Null %}
                 <div class="errorMessage">
                     <i class="fa fa-fw fa-exclamation"></i>
                     <span>{{ error }}</span>
+                </div>
+            {% endif %}
+            {% if success != Null %}
+                <div class="successMessage">
+                    <i class="fa fa-fw fa-tick"></i>
+                    <span>{{ success }}</span>
                 </div>
             {% endif %}
             <div class="loginContainer">
@@ -41,7 +47,6 @@
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
-<script src="{% static 'phrasebook/js/dropdown.js' %}"></script>
 <script src="{% static 'phrasebook/js/labels.js' %}"></script>
 </body>
 </html>

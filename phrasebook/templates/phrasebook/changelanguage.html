@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Phrasebook - {{ category.name }}</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="https://dcatcher.me/assets/favicon.png">
+  </head>
+
+  <body>
+    {% include "phrasebook/sidebar.html" %}
+    <main>
+    {% csrf_token %}
+        <div class="topBar">
+            <div class="top">
+                <span class="mainTitle">
+                    <i class="fa fa-fw fa-globe"></i>
+                    <span>Change Language</span>
+                </span>
+                <div class="buttons">
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="language-selector">
+                {% if languages_len == 1 %}
+                    <span>No languages to choose</span>
+                {% endif %}
+                {% for language in languages %}
+                    {% if language.flag_name != current_language.flag_name %}
+                        <a class="language-block" style="background-color:{{ language.color }}" href="{% url 'phrasebook:change_language' language.flag_name %}">
+                            <span class="language-title">{{ language.english_name }}</span>
+                            <img src="https://dcatcher.me/assets/{{ language.flag_name }}.svg" alt="{{ language.english_name }}" class="language-icon">
+                            <span class="hidden">{{ language.flag_name }}</span>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
+{#    <script src="{% static 'phrasebook/js/dropdown.js' %}"></script>#}
+    <script src="{% static 'phrasebook/js/languagePicker.js' %}"></script>
+    <script src="{% static 'phrasebook/js/sidebar.js' %}"></script>
+    <script src="{% static 'phrasebook/js/editword.js' %}"></script>
+    <script src="{% static 'phrasebook/js/starred.js' %}"></script>
+    <script src="{% static 'phrasebook/js/search.js' %}"></script>
+
+  </body>
+</html>

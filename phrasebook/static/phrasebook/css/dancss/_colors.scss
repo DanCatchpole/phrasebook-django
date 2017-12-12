@@ -5,10 +5,11 @@ $navy: #001f3f;
 $aqua: #7FDBFF;
 $teal: #39CCCC;
 $olive: #3D9970;
-$green: #2ECC40;
+$green: #ccb3a2;
 $lime: #01FF70;
 $yellow: #FFDC00;
 $orange: #FF851B;
+$deepOrange: #d95800;
 $maroon: #85144b;
 $fuscia: #F012BE;
 $purple: #B10DC9;
@@ -28,6 +29,7 @@ $white: #FFFFFF;
 .bg--lime {background-color: $lime }
 .bg--yellow {background-color: $yellow; }
 .bg--orange {background-color: $orange; }
+.bg--deepOrange {background-color: $deepOrange; }
 .bg--maroon {background-color: $maroon; }
 .bg--fuscia {background-color: $fuscia; }
 .bg--purple {background-color: $purple; }

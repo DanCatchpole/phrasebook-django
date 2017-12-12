@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
+* {
+  box-sizing: border-box; }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 100%; }
+
+body {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%), url("https://dcatcher.me/assets/colosseum.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.logo-title {
+  position: fixed;
+  top: 1rem;
+  left: 1rem; }
+  .logo-title img {
+    height: 3rem; }
+
+.info-box {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  border-radius: 5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  display: flex;
+  align-items: center; }
+  .info-box span {
+    color: #ffffff;
+    font-size: 0.8rem; }
+  .info-box img {
+    margin-right: .5rem;
+    height: 1.5rem;
+    width: 1.5rem; }
+
+.centre {
+  width: 80%;
+  height: 25%;
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300; }
+  .centre span.title {
+    font-size: 3rem;
+    font-weight: 500;
+    padding: .5rem; }
+  .centre span.subtitle {
+    font-size: 2rem; }
+  .centre span.sticky {
+    flex-grow: 1; }
+  .centre a.btn {
+    margin: 1rem;
+    background-color: #FF4B33;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.2s; }
+  .centre a.btn:hover {
+    background-color: #ff351a; }
+
+/*# sourceMappingURL=home.css.map */

@@ -19,7 +19,7 @@ $mons: "Montserrat", sans-serif;
 $offwhite: rgb(222, 222, 222);
 // $redd:#d12929;
 
-form.glass-form {
+.glass-form {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -166,5 +166,17 @@ ul.glass-breadcrumb {
 
     li:last-child a {
         font-weight: 700;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .glass-btn {
+        color: #dedede;
+    }
+
+    .glass-form {
+        input[type="text"], input[type="password"], input[type="email"] {
+            border-bottom: 1px solid #dedede;
+        }
     }
 }

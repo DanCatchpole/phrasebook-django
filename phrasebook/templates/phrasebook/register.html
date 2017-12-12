@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>Phrasebook - Register</title>
     <meta name="viewport" content="width-device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
@@ -17,10 +17,10 @@
       <div class="loginBlock">
         <div class="formTitle">
           <div class="logo">
-            <object data="https://dcatcher.me/assets/logo-col.svg"></object>
+            <object data="https://dcatcher.me/assets/pb-verttext.svg"></object>
           </div>
         </div>
-        <form action="register" method="post" class="glass-form">
+        <form action="{% url 'phrasebook:register' %}" method="post" class="glass-form">{% csrf_token %}
           <input type="text" placeholder="Username" name="username" required>
           <div class="form-group">
             <input type="text" placeholder="Firstname" name="firstname" required><span class="padding"></span>
@@ -36,6 +36,6 @@
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
-    <script src="{% static 'phrasebook/js/dropdown.js' %}"></script>
+    <script src="{% static 'phrasebook/js/labels.js' %}"></script>
   </body>
 </html>

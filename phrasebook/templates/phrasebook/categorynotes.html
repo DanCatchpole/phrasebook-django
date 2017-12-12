@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Phrasebook - {{ category.name }}</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="https://dcatcher.me/assets/favicon.png">
+  </head>
+
+  <body>
+    {% include "phrasebook/sidebar.html" %}
+    <main>
+    {% csrf_token %}
+        <div class="topBar">
+            <div class="top">
+                <span class="mainTitle">
+                    <i>{{ category.shortened }}</i>
+                    <span>{{ category.name }}</span>
+                    <span class="subtext">Notes</span>
+                </span>
+                <div class="buttons">
+                </div>
+            </div>
+        </div>
+        <div class="mini-bar">
+            <a href="#" class="button black" id="edit_notes">Edit</a>
+        </div>
+        <div class="content">
+            <div class="notes"></div>
+            <textarea class="description-editor hidden" placeholder="Use DCMarkup">{{ notes}}</textarea>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>
+{#    <script src="{% static 'phrasebook/js/dropdown.js' %}"></script>#}
+    <script src="{% static 'phrasebook/js/languagePicker.js' %}"></script>
+    <script src="{% static 'phrasebook/js/sidebar.js' %}"></script>
+    <script src="{% static 'phrasebook/js/editword.js' %}"></script>
+    <script src="{% static 'phrasebook/js/starred.js' %}"></script>
+    <script src="{% static 'phrasebook/js/search.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $.post("{% url "phrasebook:update_notes" category.id %}", {
+                "notes": $(".description-editor").val(),
+                "renderonly": "true"
+            }, function(data) {
+                $(".notes").html(data.message)
+            });
+        });
+    </script>
+  </body>
+</html>
