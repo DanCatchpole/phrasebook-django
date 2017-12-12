@@ -3,3 +3,7 @@ db.sqlite3
 *pycache*
 dcatcher/settings.py
 *.css
+*.css.map
+blog/
+phrasebook/static/phrasebook/js/node_modules/
+phrasebook/static/phrasebook/js/prod/

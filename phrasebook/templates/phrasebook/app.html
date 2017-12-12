@@ -4,15 +4,29 @@
   <head>
     <title>Phrasebook - Home</title>
     <meta name="viewport" content="width-device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'phrasebook/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'phrasebook/css/new.css' %}" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/1b61713aa1.css" type="text/css">
     <link rel="icon" type="image/x-icon" href="https://dcatcher.me/assets/favicon.png">
     <link rel="manifest" href="https://dcatcher.me/app/manifest.json">
   </head>
-  <body>
-    <main>
-
-    </main>
+  <body id="app">
+    <script>
+        var homeLink = "{% url "phrasebook:app" %}";
+        var userDetails = {'current_language': "{{ current_language.flag_name }}",
+           "languages_len": {{ languages_len }},
+           'username': "{{ username }}",
+           'level': {{ level }},
+           'xp_percentage': {{ xp_percentage }}
+        };
+        var menuItems = [
+            {
+               title: 'Home', url: homeLink, active: true
+            },
+            {
+                title: 'All Categories', url: '{% url "phrasebook:all_categories" %}'
+            }
+        ];
+    </script>
     <script src="{% static "phrasebook/js/prod/bundle.js" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.js"></script>

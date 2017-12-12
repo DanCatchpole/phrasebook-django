@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+
+$bg-color: #EBEBEB;
+$main-font: "Montserrat", sans-serif;
+$primary-color: #FF614C;
+$primary-blue: #56CCF2;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: $main-font;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+    background-color: $bg-color;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+
+  div.contents {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    flex-shrink: 1;
+
+    div.navigation {
+      padding: 1rem;
+      //margin-left: rem;
+      a {
+        text-decoration: none;
+        padding: 0.5rem 0.5rem 0.25rem;
+        margin-left: .25rem;
+        margin-right: .25rem;
+        color: #333;
+        font-size: 1.5rem;
+      }
+
+      a.active {
+        font-weight: 500;
+        border-bottom: 2px solid $primary-color;
+      }
+
+      a:hover:not(.active) {
+          border-bottom: 2px solid rgba($primary-color, 0.5);
+      }
+    }
+  }
+ img {
+    height: 2.5rem;
+  }
+
+  a.user-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img.user-icon {
+      border-radius: 50%;
+      z-index: 4;
+    }
+
+    img.flag {
+      position: relative;
+      border-radius: 50% 50% 50% 0;
+      height: 1.5rem;
+      left: -1rem;
+      top: 0.75rem;
+      z-index: 5;
+    }
+
+    div.progress-bar {
+      position: relative;
+      width: 10rem;
+      border-radius: 1rem;
+      height: 1rem;
+      background-color: #eee;
+      top: .5rem;
+      left: -2rem;
+      z-index: 1;
+
+      span {
+        top: -1.2rem;
+        left: 0.9rem;
+        position: absolute;
+        font-size: 0.75rem;
+      }
+
+      div.actual-progress {
+        position: absolute;
+        width: 90%;
+        height: 100%;
+        background-color: $primary-blue;
+        border-radius: 1rem;
+      }
+    }
+  }
+
+}
+
+.sticky-push {
+  flex-grow: 10;
+}
+
+main {
+  height: 100%;
+  padding: 1rem;
+}
